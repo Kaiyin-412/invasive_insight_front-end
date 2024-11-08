@@ -5,24 +5,24 @@
 
 ### `clone the repo`
 2. run this command on your cmd 
-'''sh
+```sh
 git clone https://github.com/Kaiyin-412/invasive_insight_front-end.git
-'''
+```
 
 ### `some setup`
 3. Enter the following command in your cmd to install all necessary packages listed in package.json .
-'''sh
+```sh
 cd invasive_insight_front-end
 npm install
-'''
+```
 ### `run the project` 
  4. just run the command on cmd and the webpage will come out
-'''sh
+```sh
 npm start
-'''
+```
 ### `open the src code on vs code`
 5. if u are using vs code just run 
-'''sh
+```sh
 cd invasive_insight_front-end
 code .
-'''
+```
