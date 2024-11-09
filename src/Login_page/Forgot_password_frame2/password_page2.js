@@ -1,5 +1,4 @@
 import React from 'react'
-import Forgot_img2 from '../../image/Forgot_password2/password_page2.png'
 import './password_page2.css';
 import { useNavigate } from 'react-router-dom';
 
@@ -21,7 +20,7 @@ function Password_page2 () {
     <div>
       <div class="Password_Page2-container">
         <div>
-          <img src={Forgot_img2} alt="Forgot_img2"/>
+          <img src="https://lirp.cdn-website.com/e15ed933/dms3rep/multi/opt/why_do_stink_bugs_smell_bad-1920w.jpeg" alt="Forgot_img2"/>
         </div>
         <div class="Password_Page2-section">
           <h1>Forgot Password</h1>

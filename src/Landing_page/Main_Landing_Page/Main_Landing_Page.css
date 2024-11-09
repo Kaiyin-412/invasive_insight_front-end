@@ -1,0 +1,123 @@
+.Main_Landing_page-container{
+    display: flex; 
+    max-height: 100vh;
+    max-width: 100vw;
+}
+
+.Main_Landing_page-section{
+    margin: auto;
+}
+
+.Main_Landing_page-MenuBar{
+    display:flex;
+    align-items: center;
+    width: 100%;
+}
+
+.Main_Landing_page-MenuBar h1{
+    font-family: "Inter";
+    font-weight: bold;
+    margin-left: 10px;
+    
+}
+
+.Main_Landing_page-MenuBar #Logo_img{
+    object-fit: cover;
+    border: none;
+}
+
+.Main_Landing_page-right{
+    /* move the item to the rightmost */
+    margin-left: auto; 
+}
+
+.Main_Landing_page-right a{
+    text-decoration: none;
+    color :#989898;
+    margin-right: 55px;
+    cursor: pointer;
+}
+
+.Main_Landing_page-right button{
+    border: none;
+    background-color : black;
+    color:white;
+    height: 40px;
+    width: 125px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-family: 'Poppins';
+}
+
+.Main_Landing_page-img{
+    object-fit: cover;
+    margin-top: 20px;
+}
+
+.Main_Landing_page-QuizContainer p{
+    font-weight: 500;
+    font-family: 'Poppins';
+    margin-bottom: 15px;
+}
+
+.Main_Landing_page-Quiz{
+    display: flex;
+    flex-direction: column;  /* Arrange items in a column (vertical) */
+    justify-content: space-between;
+    height: 250px;
+    width: 200px;
+    border: white;
+    /* shadow effect */
+    box-shadow: 4px 4px 8px 5px rgba(148, 148, 148, 0.2),-4px 4px 8px 5px rgba(148, 148, 148, 0.2); 
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.Main_Landing_page-Quiz img{
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    width: 100%;
+    object-fit: cover;
+    margin: 0px;
+}
+
+.Main_Landing_page-Quiz p{
+    font-weight: bold;
+    font-family: 'Inter';
+    font-size: 20px;
+    margin-left: 8px;
+}
+
+.Main_Landing_page-Quiz a{
+    margin-left: 8px;
+    margin-top: auto;  /*push to the bottom*/
+    margin-bottom: 10px;
+    font-weight: bold;
+    color :#989898;
+    font-family: 'Inter';
+}
+
+.Main_Landing_page-button{
+    display: flex;
+}
+
+.Main_Landing_page-button button{
+    margin-left: auto;
+    border-radius: 50px;
+    border: none;
+    width: 40px;
+    height: 40px;
+    background-color: #B3B3B3;
+    cursor: pointer;
+}
+
+.Main_Landing_page-button img{
+    display: flex;
+    width: 20px;
+    height: 20px;
+    margin: auto;
+}
+
+.Main_Landing_page-container button:hover{
+    transform: scale(1.2);        /* Slightly increase button size on hover */
+}
