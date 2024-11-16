@@ -2,7 +2,7 @@ import React from 'react'
 import Logo from '../../image/Main_Lading_Page/Logo_image/logo.png';
 import './Main_Landing_Page.css';
 import Forest_img from '../../image/Main_Lading_Page/Forest_image/Forest_image.png';
-import TerrestrialInvasiveMammalsImg from '../../image/Main_Quiz_page/Terrestrial Invasive Mammals/Terrestrial_Invasive_Mammals_img.jpg';
+import TerrestrialInvasiveMammalsImg from '../../image/Main_Frame/Terrestrial Invasive Mammals/Terrestrial_Invasive_Mammals_img.jpg';
 import Button_img from '../../image/Main_Lading_Page/Button/Button_img.png'
 
 // render menu items 
@@ -40,12 +40,19 @@ function Main_Landing_Page() {
 
             <div className='Main_Landing_page-QuizContainer'>
                 <p>My Learnings</p>
+                  <div className='Main_Landing_page-QuizSection'>
+                    <div className="Main_Landing_page-Quiz">
+                      <img src={TerrestrialInvasiveMammalsImg} alt='Tapirus indicus'/>
+                      <p>Terrestrial Invasive Mammals</p>
+                      <a href="./">Replay Quiz</a>
+                    </div> 
 
-                <div className="Main_Landing_page-Quiz">
-                  <img src={TerrestrialInvasiveMammalsImg} alt='Tapirus indicus'/>
-                  <p>Terrestrial Invasive Mammals</p>
-                  <a href="./">Replay Quiz</a>
-                </div> 
+                    <div className="Main_Landing_page-Quiz">
+                      <img src={TerrestrialInvasiveMammalsImg} alt='Tapirus indicus'/>
+                      <p>Terrestrial Invasive Mammals</p>
+                      <a href="./">Replay Quiz</a>
+                    </div> 
+                  </div>
 
             </div>
             <div className='Main_Landing_page-button'>
