@@ -3,3 +3,174 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+  }
+  
+  .app {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .sidebar {
+    width: 250px;
+    background-color: #c7e5b2;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .sidebar .logo {
+    text-align: center;
+  }
+  
+  .sidebar .logo h1 {
+    font-size: 20px;
+    margin-top: 10px;
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar li {
+    padding: 10px;
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .sidebar li:hover,
+  .sidebar li.active {
+    background-color: #a8d08d;
+  }
+  
+  .sidebar li svg {
+    margin-right: 10px;
+  }
+  
+  .sidebar .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .forum {
+    flex: 1;
+    padding: 20px;
+    background-color: #ffffff;
+    overflow-y: auto;
+  }
+  
+  .post-box {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .post-box textarea {
+    width: 100%;
+    height: 60px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: none;
+  }
+  
+  .post-box button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .post-box button:hover {
+    background-color: #45a049;
+  }
+  
+  .card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card h3 {
+    margin: 0 0 10px;
+    font-size: 18px;
+  }
+  
+  .card h3 span {
+    float: right;
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .card p {
+    margin: 0 0 10px;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .card .comment-section {
+    display: flex;
+    align-items: center;
+  }
+  
+  .card .comment-section input {
+    flex: 1;
+    padding: 8px;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .card .comment-section button {
+    padding: 8px 15px;
+    background-color: #4caf50;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .card .comment-section button:hover {
+    background-color: #45a049;
+  }
+  
+  .sidebar .logo {
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Horizontally center the items */
+    justify-content: flex-start; /* Vertically center the items */
+    height: 250px; /* Adjust the height of the logo container */
+    text-align: center;
+    margin-top: -130px;
+    margin-bottom: -50px;
+    
+    
+    
+  }
+  
+  .sidebar .logo img {
+    width: 500px; /* Adjust the width of the logo */
+    height: 500px; /* Maintain aspect ratio */
+   
+  }
+  
+  
+  

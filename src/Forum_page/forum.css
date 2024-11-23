@@ -1,0 +1,235 @@
+.forum {
+    flex: 1;
+    padding: 20px;
+    background-color: #f9f9f9;
+    overflow-y: auto;
+}
+
+.post-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* Share Your Thoughts Section */
+.input-card {
+    margin-bottom: 20px; /* Add space below the "Share your thoughts" card */
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.input-card textarea {
+    height: 245px; /* Adjusted height */
+    resize: none;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-bottom: 40px;
+}
+
+.input-card .post-button {
+    position: absolute;
+    bottom: 14px;
+    right: 10px; /* Align to the bottom-right corner */
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.input-card .post-button:hover {
+    background-color: #333;
+}
+
+/* Card Styles */
+.card {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 350px; /* Increased height for consistent look */
+}
+
+.card h3 {
+    margin: 0 0 10px;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card p.username {
+    margin-top: 15px; /* Push username closer to the comment section */
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.card p.content {
+    flex: 1; /* Allows the content to grow in size */
+}
+
+/* Like Button with Counter */
+.like-button-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between counter and like button */
+}
+
+.like-counter {
+    font-size: 14px;
+    color: lightgray; /* Light gray counter */
+}
+
+.like-button {
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.3s;
+}
+
+.like-button.liked {
+    background-color: black;
+    color: white;
+}
+
+/* Comment Section */
+.comment-section {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    gap: 10px;
+}
+
+.comment-section input {
+    flex: 2; /* Increased width */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.comment-section button {
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.comment-section button:hover {
+    background-color: #333;
+}
+
+.input-card .topic-input {
+    height: 15px; /* Height of the topic input field */
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+   
+}
+
+.post-button {
+    background-color: black !important; /* Force the background color to black */
+    color: white !important; /* Ensure text color remains white */
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.post-button:hover {
+    background-color: #333 !important; /* Darker shade on hover */
+}
+
+
+
+/* Line above username */
+.card hr {
+    border: none;
+    border-top: 1px solid #ddd; /* Light gray line */
+    margin: 10px 5px 0;
+}
+
+/* Comments list */
+.comments-list {
+  
+    margin-bottom: 5px; /* Reduce space below username */
+   
+}
+
+.comment-item {
+    margin-bottom: 5px; /* Space between each comment */
+    font-size: 14px;
+    color: #555;
+}
+
+/* Placeholder for comments */
+.comment-placeholder {
+    font-size: 14px;
+    color: lightgray;
+    margin-bottom: 5px;
+}
+
+.settings-popup {
+    position: fixed;
+    bottom: 20px; /* Position the popup 20px from the bottom */
+    left: 50%;
+    transform: translateX(-50%); /* Center align the popup horizontally */
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 250px;
+    z-index: 1000;
+    text-align: center;
+  }
+  
+  .settings-popup h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  .settings-buttons {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .settings-buttons button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    transition: background-color 0.3s;
+  }
+  
+  .settings-buttons button:hover {
+    background-color: #333;
+  }
+  
