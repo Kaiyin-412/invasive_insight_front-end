@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import {
+  FaHome, // Import the Home icon
   FaUser,
   FaChartBar,
   FaQuestionCircle,
   FaCommentAlt,
-  FaHistory,
   FaSignOutAlt,
   FaCog,
 } from "react-icons/fa";
@@ -25,6 +25,9 @@ function Sidebar() {
         </div>
         <ul className="menu">
           <li>
+            <FaHome /> Home {/* Changed this from Quiz History */}
+          </li>
+          <li>
             <FaUser /> Profile
           </li>
           <li>
@@ -35,9 +38,6 @@ function Sidebar() {
           </li>
           <li className="active">
             <FaCommentAlt /> Forum
-          </li>
-          <li>
-            <FaHistory /> Quiz History
           </li>
         </ul>
         <div className="footer">
