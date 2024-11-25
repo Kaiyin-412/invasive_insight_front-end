@@ -15,7 +15,7 @@ function GenerateMenu (props){
 
 function Main_Landing_Page() {
 
-  const Menu = ['Quiz History','Forum','Quiz','Dashboard','Profile'];
+  const Menu = ['Forum','Quiz','Dashboard','Profile'];
 
   return (
     <div className='Main_Landing_page-container'>

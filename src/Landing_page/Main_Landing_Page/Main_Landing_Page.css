@@ -27,6 +27,8 @@
 }
 
 .Main_Landing_page-right{
+    display: flex;
+    align-items: center;
     /* move the item to the rightmost */
     margin-left: auto; 
 }
@@ -52,6 +54,7 @@
     border-radius: 8px;
     font-weight: bold;
     font-family: 'Poppins';
+    margin-top: 15px;
 }
 
 .Main_Landing_page-img{

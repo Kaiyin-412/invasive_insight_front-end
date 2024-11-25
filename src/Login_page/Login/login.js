@@ -14,6 +14,19 @@ function Login() {
         navigate("/PasswordPage");
     }
 
+    //naviagte to sign up
+    const NavigateToSign = (e) =>{
+        e.preventDefault();
+        navigate("/SignUp");
+    }
+
+    // navigate to landing page
+    const NavigateToLanding = (e) =>{
+        e.preventDefault();
+        navigate("/LandingPage");
+    }
+
+
   return (
     <div class="login-container">
         <div>
@@ -39,11 +52,11 @@ function Login() {
                             placeholder="Enter your password"/>
                 </label>
 
-                <button type="submit">Login</button>
+                <button type="submit" onClick={NavigateToLanding}>Login</button>
             </form>
 
             <div class="signup-prompt">
-                <p>Don't have an account? <a href="/SignUp" onclick={navigate("/SignUp")}>Sign Up</a></p>
+                <p>Don't have an account? <a href="/SignUp" onClick={NavigateToSign}>Sign Up</a></p>
             </div>
         </div>   
     </div>

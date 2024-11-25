@@ -1,7 +1,6 @@
-import logo from './logo.svg';
 import './QuizApp.css';
 import React, { useEffect, useState } from 'react';
-import './QuizQuestion.js';
+import QuizQuestion from './QuizQuestion.js';
 import './styles.css';
 
 const quizData =[
@@ -78,7 +77,7 @@ const quizData =[
   }
 ];
 
-function App() {
+function QuizApp() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [isQuizCompleted, setIsQuizCompleted] = useState(false);
