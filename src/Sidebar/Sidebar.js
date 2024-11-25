@@ -9,7 +9,7 @@ import {
   FaCog,
 } from "react-icons/fa";
 import logo from "../image/Forum_page_image/invasive_insight_logo.png";
-import "./forum.css"; // Use the combined CSS file
+import "./Sidebar.css";
 
 function Sidebar() {
   const [showSettings, setShowSettings] = useState(false);
@@ -22,9 +22,9 @@ function Sidebar() {
     <>
       <div className="sidebar">
         <div className="logo">
-          <img src={logo} alt="Invasive Insight Logo" className="logo-image" />
+          <img src={logo} alt="Invasive Insight Logo" />
         </div>
-        <ul className="menu">
+        <ul>
           <li>
             <FaHome /> Home
           </li>
@@ -51,19 +51,20 @@ function Sidebar() {
         </div>
       </div>
 
+      {/* Centralized Popup */}
       {showSettings && (
-        <div className="settings-popup">
-          <h3>Text Size Adjustment</h3>
-          <div className="settings-buttons">
-            <button onClick={() => (document.body.style.fontSize = "14px")}>
-              Small
-            </button>
-            <button onClick={() => (document.body.style.fontSize = "18px")}>
-              Big
-            </button>
-          </div>
-        </div>
-      )}
+  <div className="settings-popup">
+    <h3>Text Size Adjustment</h3>
+    <div className="settings-buttons">
+      <button onClick={() => (document.body.style.fontSize = "14px")}>
+        Small
+      </button>
+      <button onClick={() => (document.body.style.fontSize = "18px")}>
+        Big
+      </button>
+    </div>
+  </div>
+)}
     </>
   );
 }
