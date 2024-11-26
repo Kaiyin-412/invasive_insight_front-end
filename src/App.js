@@ -4,11 +4,9 @@ import SignUp from './Login_page/Sign_up/sign_up';
 import PasswordPage from './Login_page/Forgot_password/password_page';
 import PasswordPage2 from './Login_page/Forgot_password_frame2/password_page2';
 import PasswordReset from './Login_page/Password_reset/password_reset';
-import LandingPage from './Landing_page/Main_Landing_Page/Main_Landing_Page';
+import LandingPage from './Landing_page/Main_Landing_Page';
 import QuizApp from './Quiz/QuizApp';
-import Sidebar from "./Sidebar/Sidebar";
-import Forum from "./Forum_page/Forum";
-import "./Forum_page/forum.css";
+import ForumPage from './Main_frame/Forum_frame/Forum_page';
 import { BrowserRouter as Router,Route,Routes } from 'react-router-dom';
 
 function App() {
@@ -22,21 +20,10 @@ function App() {
         <Route path="/PasswordPage2/PasswordReset" element={<PasswordReset/>}/>
         <Route path="/LandingPage" element={<LandingPage/>}/>
         <Route path="/LandingPage/QuizApp" element={<QuizApp/>}/>
-         {/* Forum-related route with Sidebar */}
-         <Route
-              path="/Forum"
-              element={
-                <div className="sidebarncontent">
-                  <Sidebar className="Forum_page-sidebar" />
-                  <div className="forum">
-                    <Forum />
-                  </div>
-                </div>
-              }
-            />
-                  </Routes>
-                </Router>
-              );
+        <Route path="/LandingPage/Forum" element={<ForumPage/>}/>
+      </Routes>
+    </Router>
+          );
 }
 
 export default App;

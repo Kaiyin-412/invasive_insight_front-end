@@ -1,6 +1,6 @@
 import React from 'react'
 import Logo from '../../image/Main_Frame/Logo/black invasive insight logo 1.png';
-import './Quiz_frame.css';
+import './SideBar.css';
 import {
   FaHome,
   FaUser,
