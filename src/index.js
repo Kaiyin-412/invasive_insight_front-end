@@ -1,17 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+// import App from './App';
 import reportWebVitals from './reportWebVitals';
 // import MainlandingPage from './Landing_page/Main_Landing_Page/Main_Landing_Page';
-// import Quizframe from './Main_frame/Quiz_frame/Quiz_frame';
+import Quizframe from './Main_frame/Quiz_frame/Quiz_frame';
+// import Sidebar from './Sidebar/Sidebar';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App/>
+    {/* <App/> */}
     {/* <MainlandingPage /> */}
-    {/* <Quizframe/> */}
+    <Quizframe/>
+    {/* <Sidebar/> */}
   </React.StrictMode>
 );
 

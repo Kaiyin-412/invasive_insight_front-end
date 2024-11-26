@@ -1,0 +1,72 @@
+.Quiz_Frame-container{
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+.Quiz_Frame-MenuBar{
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    background-color: #ACD59F;
+}
+
+.Quiz_Frame-MenuBar img{
+    margin-top: -100px;
+    height : 500px;
+    margin-bottom: -110px;
+    object-fit: cover;
+}
+
+.Quiz_Frame-MenuBar button{
+    display:flex;
+    align-items: center;
+    background-color: #ACD59F;
+    border: none;
+    width: 100%;
+    gap: 20px;
+    
+}
+
+.Quiz_Frame-MenuBar .button-hover:hover{
+    background-color: #57441C;
+}
+
+/* .Quiz_Frame-MenuBar .button-hover:focus{
+    background-color: #57441C;
+} */
+
+/* styling for the icon  */
+.Quiz_Frame-MenuBar .icon{
+    margin-left: 90px;
+    font-size: 30px;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+.Quiz_Frame-MenuBar p{
+    font-weight: 600;
+}
+
+.Quiz_Frame-MenuBar2{
+    display: flex;
+    margin-top: auto;
+}
+
+.Quiz_Frame-MenuBar2 .icon-logout{
+    font-size: 20px;
+}
+
+.Quiz_Frame-MenuBar2 .icon-settings{
+    margin-left: auto;
+    margin-right: 15px;
+    font-size: 20px;
+}
+
+.Quiz_Frame-MenuBar2 .icon-logout:hover{
+    transform: scale(1.2);
+}
+
+.Quiz_Frame-MenuBar2 .icon-settings:hover{
+    transform: scale(1.2);
+}
