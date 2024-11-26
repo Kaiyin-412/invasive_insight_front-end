@@ -1,20 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-// import App from './App';
+import App from './App';
 import reportWebVitals from './reportWebVitals';
 // import MainlandingPage from './Landing_page/Main_Landing_Page/Main_Landing_Page';
 // import SideBar from './Main_frame/SideBar/SideBar';
-import QuizFrame from './Main_frame/QuizList_frame/QuizList';
+// import QuizFrame from './Main_frame/QuizList_frame/QuizList';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     {/* <Quizframe/> */}
-    {/* <App/> */}
+    <App/>
     {/* <SideBar/> */}
     {/* <LandingPage/> */}
-    <QuizFrame/>
+    {/* <QuizFrame/> */}
   </React.StrictMode>
 );
 
