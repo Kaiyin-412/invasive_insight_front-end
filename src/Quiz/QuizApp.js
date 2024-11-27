@@ -1,7 +1,7 @@
-import './QuizApp.css';
+// import './QuizApp.css';
 import React, { useEffect, useState } from 'react';
 import QuizQuestion from './QuizQuestion.js';
-import './styles.css';
+// import './styles.css';
 
 const quizData =[
   {

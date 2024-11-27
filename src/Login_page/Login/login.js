@@ -1,8 +1,10 @@
 import React, { useContext } from 'react'
 import './login.css';
 import loginImage from '../../image/Login_page_image/login_image.png'; //image for the login page
-import { useNavigate } from 'react-router-dom';
+import { redirect, useNavigate } from 'react-router-dom';
 import { FontSizeContext } from '../../FontSize/FontSizeContext';
+
+
 
 function Login() {
     
@@ -29,6 +31,29 @@ function Login() {
         navigate("/LandingPage");
     }
 
+    const handleLoginAttempt = async () =>{
+        try {
+        const res = await fetch("http://127.0.0.1:5000/login",{
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+            "username" : document.getElementById('username').value,
+            "password" : document.getElementById('password').value,
+            }),
+        });
+        const data = await res.json();
+        if (data.message == "Login successful"){
+            navigate("/LandingPage"); // this does not work?
+        }else{
+            console.log("Incorrect username or password"); // kai yin, implement this in GUI
+        }
+        } catch (err) {
+        console.log(err);
+        }
+    
+    };
 
   return (
     <div class="login-container" style={{fontSize}}>
@@ -55,7 +80,7 @@ function Login() {
                             placeholder="Enter your password"/>
                 </label>
 
-                <button type="submit" onClick={NavigateToLanding}>Login</button>
+                <button type="submit" onClick={handleLoginAttempt}>Login</button>
             </form>
 
             <div class="signup-prompt">
