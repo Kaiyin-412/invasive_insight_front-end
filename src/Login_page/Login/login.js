@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './login.css';
 import loginImage from '../../image/Login_page_image/login_image.png'; //image for the login page
 import { useNavigate } from 'react-router-dom';
-
+import { FontSizeContext } from '../../FontSize/FontSizeContext';
 
 function Login() {
+    
+    // handle for the change in font size 
+    const {fontSize} =useContext(FontSizeContext);
 
     const navigate  = useNavigate();
 
@@ -28,7 +31,7 @@ function Login() {
 
 
   return (
-    <div class="login-container">
+    <div class="login-container" style={{fontSize}}>
         <div>
             <img src={loginImage} alt="loginImage"/>
         </div>

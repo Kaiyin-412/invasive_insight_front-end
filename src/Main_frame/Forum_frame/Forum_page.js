@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Forum from "./Forum";
 import "./forum.css";
-import QuizFrame from '../SideBar/SideBar';
+import SideBar from '../SideBar/SideBar';
+import { FontSizeContext} from '../../FontSize/FontSizeContext';
+
 function Forum_page() {
+
+  const {fontSize} =useContext(FontSizeContext);
+
   return (
-    <div className="sidebarncontent">
-        <QuizFrame className="Forum_page-sidebar" />
+    <div className="sidebarncontent" style={{fontSize}}>
+        <SideBar className="Forum_page-sidebar" />
             <div className="forum">
                 <Forum />
             </div>

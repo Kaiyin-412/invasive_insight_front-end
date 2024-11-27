@@ -5,7 +5,8 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+    backdrop-filter: blur(8px);
+    /* background-color: rgba(0, 0, 0, 0.6); */
     display: flex;
     align-items: center;
     justify-content: center;

@@ -1,0 +1,48 @@
+.Settings-container{
+    position: fixed;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    /* apply blur effet  */
+    backdrop-filter: blur(8px); 
+}
+
+.Settings-component{
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    width: 500px;
+    height: 170px;
+    margin: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.Settings-component h1{
+    margin-top: 15px;
+    text-align: center;
+    font-family: 'Poppins';
+    font-weight: 600;
+}
+
+.Settings-buttons{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.Settings-buttons button{
+    margin-top: 20px;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    font-family: 'Inter';
+    font-size: medium;
+    width: 100px;
+    height: 45px;
+    border-radius: 5px;
+}
+
+.Settings-buttons button:hover{
+    transform: scale(1.1);
+}

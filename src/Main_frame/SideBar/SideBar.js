@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import Logo from '../../image/Main_Frame/Logo/black invasive insight logo 1.png';
 import './SideBar.css';
+import Settings from './Settings';
 import {
   FaHome,
   FaUser,
@@ -11,12 +12,29 @@ import {
   FaCog,
 } from "react-icons/fa";
 
-function Quiz_frame() {
+import { FontSizeContext } from '../../FontSize/FontSizeContext';
+
+function SideBar() {
+
+  const [ShowSettings, SetShowSettings] = useState(false);
+
+  // handle for the change in font size 
+  const {fontSize} =useContext(FontSizeContext);
+
+  const ToggleSettings= (e) =>{
+    e.preventDefault();
+    SetShowSettings(true);
+  }
+
+  const CloseSettings = (e) =>{
+    e.preventDefault();
+    SetShowSettings(false);
+  }
 
   return (
-    <div className='Quiz_Frame-container'>
+    <div className='SideBar-container' style={{fontSize}}>
 
-        <div className='Quiz_Frame-MenuBar'>
+        <div className='SideBar-MenuBar'>
             <img src={Logo} alt='Logo'/>
 
             <button className='button-hover'>
@@ -39,20 +57,23 @@ function Quiz_frame() {
               <FaCommentAlt className='icon'/> <p>Forum</p>
             </button>
 
-            <div className='Quiz_Frame-MenuBar2'>
+            <div className='SideBar-MenuBar2'>
 
               <button>
                 <FaSignOutAlt className='icon-logout'/> <p>Log out</p>
               </button>
 
               <button>
-                <FaCog className='icon-settings'/>
+                <FaCog className='icon-settings' onClick={(e)=>ToggleSettings(e)}/>
               </button>
 
             </div>
         </div>
+        {ShowSettings && (
+          <Settings OnClose={(e)=>CloseSettings(e)}/>
+        )}
     </div>
   )
 }
 
-export default Quiz_frame
+export default SideBar
