@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Logo from '../image/Main_Lading_Page/Logo_image/logo.png';
 import './Main_Landing_Page.css';
 import Forest_img from '../image/Main_Lading_Page/Forest_image/Forest_image.png';
 import TerrestrialInvasiveMammalsImg from '../image/Main_Frame/Terrestrial Invasive Mammals/Terrestrial_Invasive_Mammals_img.jpg';
 import Button_img from '../image/Main_Lading_Page/Button/Button_img.png'
 import { useNavigate } from 'react-router-dom';
+import { FontSizeContext } from '../FontSize/FontSizeContext';
+
 
 // render menu items 
 function GenerateMenu (props){
@@ -24,10 +26,13 @@ function GenerateMenu (props){
 
 function Main_Landing_Page() {
 
+  // handle the change in fontsize
+  const {fontSize} = useContext(FontSizeContext);
+
   const Menu = ['Forum','Quiz','Dashboard','Profile'];
 
   return (
-    <div className='Main_Landing_page-container'>
+    <div className='Main_Landing_page-container' style={{fontSize}}>
 
         <div className='Main_Landing_page-section'>
 
