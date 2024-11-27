@@ -5,6 +5,8 @@ import Sign_up_img from '../../image/Signup_page_image/signup image.png' /*Image
 import { useState } from 'react';
 import Verify from './verify_email';
 
+
+
 function Sign_up () {
 
   const navigate = useNavigate();
@@ -24,11 +26,38 @@ function Sign_up () {
     navigate('/');
   }
 
+  // zj: this function will send json to backend to sign up a person
+  const handleSignUpAttempt = async () =>{
+    try {
+      // verify their email
+      // kai yin, please help me to create the pop up. I dunno how to do it
+
+      // add new user
+      // if(verify){
+      const res = await fetch("http://127.0.0.1:5000/add_user",{
+          method: 'POST',
+          headers: {
+          'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+          "username" : document.getElementById('username').value,
+          "email" : document.getElementById('username').value,
+          "password" : document.getElementById('password').value,
+          }),
+      });
+      const data = await res.json();
+      
+    } catch (err) {
+      console.log(err);
+    }
+    //}
+  }
+
   return (
     <div class="Signup-container">
       <div class="Signup-form-section">
         <h1>Get started now!</h1>
-          <form class="Sign_up_from" onSubmit={handleVerify}>
+          <form class="Sign_up_from">
 
               <label for="username">Username<input name="username" id="username" type="text" required placeholder="Enter your username"/>
               </label>      
@@ -42,7 +71,7 @@ function Sign_up () {
               <label for="confirm_password">Confirm your Password<input name="confirm_password" id="confirm_password" type="password" required placeholder="Enter your password"/>
               </label>
 
-              <button type="submit">Signup</button>
+              <button type="submit" onClick={handleSignUpAttempt}>Signup</button>
 
           </form>
          
