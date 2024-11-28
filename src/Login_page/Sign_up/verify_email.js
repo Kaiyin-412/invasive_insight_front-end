@@ -1,5 +1,20 @@
 import React from 'react'
 import './verify_email.css';
+
+const verifyEmail = async (otp) =>{
+  await fetch(`http://localhost:5000/email/verify_user?otp=${otp}`)
+  .then((res) => res.json()) // convert response into json
+  .then((responseJSON) => {
+    if (responseJSON["Verified"]){
+      // the application has tried to send the email
+      console.log("Correct username and password");
+    }else{
+      console.log("Correct username or password");
+    }
+  })
+  .catch((err) => console.log(err))
+}
+
 function Verify_email() {
   return (
     <div className="popup-overlay">
@@ -16,7 +31,7 @@ function Verify_email() {
             <input type="text" inputMode="numeric" maxLength="1" required name="fifth-digit"/>
           </div>
           <div>
-            <button>Verify email</button>
+            <button onClick={verifyEmail}>Verify email</button>
           </div>
         </form>
       </div>
