@@ -69,17 +69,14 @@ function SideBar() {
               <FaCommentAlt className='icon'/> <p>Forum</p>
             </button>
 
-            <div className='SideBar-MenuBar2'>
-
-              <button>
-                <FaSignOutAlt className='icon-logout' onClick={(e)=>NavigatePage(e,"/")}/> <p>Log out</p>
-              </button>
-
-              <button>
-                <FaCog className='icon-settings' onClick={(e)=>ToggleSettings(e)}/>
-              </button>
-
-            </div>
+              <div className='SideBar-MenuBar2'>
+                <button>
+                  <FaSignOutAlt className='icon-logout' onClick={(e)=>NavigatePage(e,"/")}/> <p>Log out</p>
+                </button>
+                <button>
+                  <FaCog className='icon-settings' onClick={(e)=>ToggleSettings(e)}/>
+                </button>
+              </div>
         </div>
         {ShowSettings && (
           <Settings OnClose={(e)=>CloseSettings(e)}/>
