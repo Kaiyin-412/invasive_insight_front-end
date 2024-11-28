@@ -8,12 +8,14 @@
     display: flex;
     flex-direction: column;
     background-color: #ACD59F;
+    justify-content: space-between;
 }
 
 .SideBar-MenuBar img{
-    margin-top: -100px;
-    height : 500px;
-    margin-bottom: -110px;
+    transform: scale(1.5);
+    height: 200px;
+    margin-top: 30px;
+    margin-bottom: 50px;
     object-fit: cover;
 }
 
@@ -24,7 +26,6 @@
     border: none;
     width: 100%;
     gap: 20px;
-    
 }
 
 .SideBar-MenuBar .button-hover:hover{
@@ -46,17 +47,26 @@
 
 .SideBar-MenuBar2{
     display: flex;
-    margin-top: auto;
 }
 
-.SideBar-MenuBar2 .icon-logout{
-    font-size: 20px;
+.SideBar-MenuBar2 .icon-logout {
+    margin-top: 30px;
+    font-size: 25px;
+}
+
+.SideBar-MenuBar2 button{
+    margin-top: 30px;
 }
 
 .SideBar-MenuBar2 .icon-settings{
     margin-left: auto;
     margin-right: 15px;
     font-size: 20px;
+    margin-top: 30px;
+}
+
+.SideBar-MenuBar2 p{
+    margin-top: 30px;
 }
 
 .SideBar-MenuBar2 .icon-logout:hover{

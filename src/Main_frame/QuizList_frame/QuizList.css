@@ -1,3 +1,52 @@
-.HHH{
+.QuizList-container{
     display: flex;
 }
+
+.QuizList-Component{
+}
+
+.QuizList-button{
+    display: flex;
+    margin-top: 20px;
+}
+
+.QuizList-button button{
+    font-size: 15px;
+    height: 40px;
+    width: 160px;
+    border-radius: 20px;
+    border: none;
+    background-color: white;
+    color: black;
+    font-weight: 600;
+    font-family: 'Inter';
+    margin-left: 50px;
+}
+
+.QuizList-button button:hover , .QuizList-button button:focus{
+    background-color: black;
+    color: white;
+}
+
+.QuizList-level {
+    display: flex;
+}
+
+.QuizList-level p{
+    font-size: 13px;
+    margin-left: 60px;
+    margin-right: 10px;
+}
+
+.QuizList-level a{
+    font-size: 13px;
+    color:  rgba(126, 126, 133, 0.636);
+    margin-right: 10px;
+}
+
+.QuizList-level a:hover , .QuizList-level a:focus{
+    cursor: pointer;
+    color: black;
+    text-decoration: underline;
+}
+
