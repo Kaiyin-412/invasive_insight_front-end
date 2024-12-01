@@ -10,8 +10,10 @@ import { FontSizeContext } from '../FontSize/FontSizeContext';
 
 // render menu items 
 function GenerateMenu (props){
-  let path ="./"+props.menu_item;
-
+  let path = "./" + props.menu_item;
+if (props.menu_item === "Quiz") {
+  path += "List";
+}
   const navigate = useNavigate();
 
   const NavigatetoNext=(e,path)=>{
