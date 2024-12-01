@@ -1,29 +1,46 @@
 .QuizList-container{
+    height: 100vh;
     display: flex;
+    
 }
 
 .QuizList-Component{
+    width: 100vw;
+    /* to have a scroll bar */
+    overflow-y: auto;
+}
+
+.QuizList-SideBar{
+    height: 100vh;
+    overflow: hidden;
+}
+
+.QuizList-main{
+    height: 100vh;
+    width: 85%;
+    margin: auto;
 }
 
 .QuizList-button{
     display: flex;
     margin-top: 20px;
+    gap: 60px;
 }
 
 .QuizList-button button{
     font-size: 15px;
     height: 40px;
-    width: 160px;
+    width: 170px;
     border-radius: 20px;
     border: none;
     background-color: white;
     color: black;
     font-weight: 600;
     font-family: 'Inter';
-    margin-left: 50px;
+    
 }
 
-.QuizList-button button:hover , .QuizList-button button:focus{
+.QuizList-button button:hover{
     background-color: black;
     color: white;
 }
@@ -34,19 +51,32 @@
 
 .QuizList-level p{
     font-size: 13px;
-    margin-left: 60px;
-    margin-right: 10px;
+    /* margin-left: 60px; */
+    margin-right: 5px;
+    margin-top: 7px;
 }
 
-.QuizList-level a{
+.QuizList-level button{
+    height: 15px;
+    width: 60px;
+    background-color: white;
+    border: none;
     font-size: 13px;
     color:  rgba(126, 126, 133, 0.636);
     margin-right: 10px;
 }
 
-.QuizList-level a:hover , .QuizList-level a:focus{
+.QuizList-level button:hover{
     cursor: pointer;
     color: black;
     text-decoration: underline;
 }
 
+.QuizList-quiz{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+}
+
+.Active{
+    color : black;
+}
