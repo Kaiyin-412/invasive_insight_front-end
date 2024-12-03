@@ -4,6 +4,7 @@ import './Main_Landing_Page.css';
 import Forest_img from '../../image/Main_Lading_Page/Forest_image/Forest_image.png';
 import TerrestrialInvasiveMammalsImg from '../../image/Main_Frame/Terrestrial Invasive Mammals/Terrestrial_Invasive_Mammals_img.jpg';
 import Button_img from '../../image/Main_Lading_Page/Button/Button_img.png'
+// import {Link} from 'react-router-dom';
 
 // render menu items 
 function GenerateMenu (props){
@@ -51,6 +52,7 @@ function Main_Landing_Page() {
                       <img src={TerrestrialInvasiveMammalsImg} alt='Tapirus indicus'/>
                       <p>Terrestrial Invasive Mammals</p>
                       <a href="./">Replay Quiz</a>
+                      {/* <Link to="/QuizApp">Replay Quiz</Link> */}
                     </div> 
                   </div>
 

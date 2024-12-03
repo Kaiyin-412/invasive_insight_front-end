@@ -86,19 +86,22 @@ function App() {
   const [timeUp, setTimeUp] = useState(false);
 
   useEffect(() => {
-      if (timer === 0) {
+      if (timer === 0 && !isQuizCompleted) {
           setTimeUp(true);
           handleProceed(false); // Assume answer is wrong if time runs out
       }
       const countdown = setInterval(() => {
+        if (!isQuizCompleted) {
           setTimer((prevTimer) => (prevTimer > 0 ? prevTimer - 1 : 0));
+        }
       }, 1000);
 
-      return () => clearInterval(countdown); 
-  }, [timer]);
+      return () => clearInterval(countdown); // Clear interval on component unmount
+  }, [timer, isQuizCompleted]);
 
+  // Reset timer and timeUp for each question
   useEffect(() => {
-      setTimer(60); 
+      setTimer(60); // Reset timer to 60 seconds for each question
       setTimeUp(false);
   }, [currentQuestionIndex]);
 
@@ -115,32 +118,35 @@ function App() {
   const progressWidth = ((currentQuestionIndex + 1) / quizData.length) * 100;
 
   return (
-      <div>
-          <div className="progress-timer-wrapper">
-              <div className="progress-container">
-                  <div className="progress-bar">
-                      <div className="progress" style={{ width: `${progressWidth}%` }}></div>
-                  </div>
-              </div>
-              <div className="timer-container">
-                  <span className="timer-icon">⏰</span>
-                  <span className="timer">{timer}</span>
-              </div>
+    <div className="quiz-body">
+      {!isQuizCompleted && (
+        <div className="progress-timer-wrapper">
+          <div className="progress-container">
+            <div className="progress-bar">
+              <div className="progress" style={{ width: `${progressWidth}%` }}></div>
+            </div>
           </div>
-          {isQuizCompleted ? (
-              <div className="score-container">
-                  <div className="score-circle">
-                      <p>{score} / {quizData.length}</p>
-                  </div>
-              </div>
-          ) : (
-              <QuizQuestion
-                  questionData={quizData[currentQuestionIndex]}
-                  onProceed={handleProceed}
-                  timeUp={timeUp} 
-              />
-          )}
-      </div>
+          <div className="timer-container">
+            <span className="timer-icon">⏰</span>
+            <span className="timer">{timer}</span>
+          </div>
+        </div>
+      )}
+      {isQuizCompleted ? (
+        <div className="feedback-overlay">
+          <div className="feedback-box correct-feedback">
+            <p>Quiz Completed! 🎉</p>
+            <p>You scored {score} out of {quizData.length}.</p>
+          </div>
+        </div>
+      ) : (
+        <QuizQuestion
+          questionData={quizData[currentQuestionIndex]}
+          onProceed={handleProceed}
+          timeUp={timeUp} // Pass timeUp as a prop
+        />
+      )}
+    </div>
   );
 }
 

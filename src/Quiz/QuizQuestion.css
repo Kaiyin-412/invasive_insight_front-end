@@ -1,4 +1,4 @@
-body {
+  .quiz-body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
@@ -13,7 +13,7 @@ body {
     align-items: center; 
   }
   
-  .quiz-container {
+.quiz-body .quiz-container {
     background-color: rgba(255, 255, 255, 0.3);
     display: flex;
     flex-direction: column;
@@ -25,12 +25,13 @@ body {
     padding: 20px;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
     position: relative;
-    margin-top: -10px;
+    margin-top: 150px;
+    margin-left: -1400px;
 }
 
-.progress-container {
-    width: 88%; 
-    height: 30px; 
+.quiz-body .progress-container {
+    width: 80%; /* Slightly wider than the progress bar */
+    height: 30px; /* Slightly taller than the progress bar */
     background-color: white;
     border-radius: 15px;
     display: flex;
@@ -38,34 +39,34 @@ body {
     justify-content: center;
     margin: 0 auto 20px auto;
     position: relative;
-    top: -8px; 
+    top: -220px; /* Adjust to maintain the position */
 }
 
-.progress-bar {
-    width: 98%; 
+.quiz-body .progress-bar {
+    width: 98%; /* Shorter length */
     height: 20px;
     background-color: #ddd;
     border-radius: 10px;
     overflow: hidden;
-    margin: 0 auto 20px auto; 
+    margin: 0 auto 20px auto; /* Higher on the page with only a small margin below */
     position: relative;
     top: 10px; 
 }
 
-.progress {
+.quiz-body .progress {
     height: 100%;
     background-color: #74d177;
     width: 0%; 
     transition: width 0.3s ease;
 }
 
-.question-box {
+.quiz-body .question-box {
     text-align: center;
     width: 100%;
     margin-bottom: 20px;
 }
 
-.options-box {
+.quiz-body .options-box {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -75,14 +76,14 @@ body {
     margin-top: 30px;
 }
   
-.question {
+.quiz-body .question {
     font-size: 1.8em;
     margin-bottom: 30px;
     text-align: center;
     max-width: 100%;
 }
 
-.options {
+.quiz-body .options {
     margin-top: 30px;
     width: auto;
     display: flex;
@@ -93,41 +94,41 @@ body {
     padding-left: 40px;
 }
 
-.option {
+.quiz-body .option {
     display: flex;
     align-items: center;
     font-size: 1.2em;
     cursor: pointer;
 }
 
-.radio-button {
+.quiz-body .radio-button {
     width: 20px;
     height: 20px;
     margin-right: 10px;
 }
 
-.radio-button.correct {
+.quiz-body .radio-button.correct {
     background-color: green;
 }
 
-.radio-button.incorrect {
+.quiz-body .radio-button.incorrect {
     background-color: red;
 }
 
-.check-button {
-    position: fixed; 
-    bottom: 4%; 
-    right: 5%; 
+.quiz-body .check-button {
+    position: fixed; /* Change to fixed to position relative to viewport */
+    bottom: 4%; /* Position at the bottom of the page */
+    right: 5%; /* Position at the right side of the page */
     background-color: #74d177;
     color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    z-index: 10; 
+    z-index: 10; /* Ensure it stays above other elements */
 }
 
-.hint-button-container {
+.quiz-body .hint-button-container {
     position: fixed;
     left: 5%;
     bottom: 5%;
@@ -142,27 +143,27 @@ body {
     max-width: fit-content;
 }
 
-.hint-button-container.expanded {
-    border-radius: 25px; 
+.quiz-body .hint-button-container.expanded {
+    border-radius: 25px; /* Adjusted to expand from circular to rounded rectangle */
     padding: 8px 16px;
 }
 
-.hint-logo {
+.quiz-body .hint-logo {
     margin-right: 8px;
 }
 
-.hint-text {
+.quiz-body .hint-text {
     font-size: 14px;
     white-space: nowrap;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
 
-.hint-button-container.expanded .hint-text {
+.quiz-body .hint-button-container.expanded .hint-text {
     opacity: 1;
 }
 
-.feedback-overlay {
+.quiz-body .feedback-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -173,10 +174,10 @@ body {
     justify-content: center;
     align-items: center;
     animation: fadeIn 0.5s ease;
-    z-index: 20;
+    z-index: 20; /* Ensures it appears above other elements */
 }
 
-.feedback-box {
+.quiz-body .feedback-box {
     width: 80%;
     max-width: 500px;
     padding: 20px;
@@ -186,11 +187,11 @@ body {
     animation: popIn 0.5s ease;
 }
 
-.correct-feedback {
+.quiz-body .correct-feedback {
     background-color: green;
 }
 
-.incorrect-feedback {
+.quiz-body .incorrect-feedback {
     background-color: red;
 }
 
@@ -204,64 +205,45 @@ body {
     0% { transform: scale(0.8); }
     100% { transform: scale(1); }
 }
-  
-  .score-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-  }
-  
-  .score-circle {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    background-color: #4caf50;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5em;
-  }
 
-  .progress-timer-wrapper {
+  .quiz-body .progress-timer-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-    width: 84%; 
+    width: 84%; /* Center both progress bar and timer container */
     position: relative;
-    top: -40px; 
+    top: -40px; /* Position above the quiz container */
 }
 
-.timer-container {
+.quiz-body .timer-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 70px; 
-    height: 30px; 
+    width: 70px; /* Adjust width as desired */
+    height: 30px; /* Same height as progress-container */
     background-color: white;
     border-radius: 15px;
-    margin-left: -60px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); 
-    position: relative; 
-    top: -18px; 
-    left: 70px;
+    margin-left: -60px; /* Spacing from progress bar container */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Optional shadow */
+    position: relative; /* Set relative positioning */
+    top: -230px; /* Align with the progress-container */
+    left: -15px;
 }
 
-.timer-icon {
-    margin-right: 5px; 
+.quiz-body .timer-icon {
+    margin-right: 5px; /* Space between icon and timer */
 }
 
-.timer-display {
+.quiz-body .timer-display {
     font-weight: bold;
     font-size: 1em;
 }
 
-.marks-container {
+.quiz-body .marks-container {
     position: absolute;
-    left: 20px; 
-    top: -15px; 
+    left: 20px; /* Align it to the left side of the progress bar */
+    top: -15px; /* Adjust as needed to position relative to the bar */
     display: flex;
     align-items: center;
     background-color: white;
@@ -272,16 +254,16 @@ body {
     top: -90px;
 }
 
-.star-icon {
+.quiz-body .star-icon {
     margin-right: 5px;
-    color: #f4c542; 
+    color: #f4c542; /* Star color */
 }
 
-.marks-text {
+.quiz-body .marks-text {
     font-weight: bold;
 }
 
-.question-image img {
+.quiz-body .question-image img {
     width: 100%;
     height: auto;
     margin-top: 15px;
