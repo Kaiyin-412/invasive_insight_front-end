@@ -1,89 +1,189 @@
-.app-container {
-    display: flex;
-    height: 100vh;
-  }
-  
-  .sidebar {
-    width: 250px;
-    background-color: #d4efc7;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  
-  .sidebar .logo {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .sidebar .menu {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .sidebar .menu li {
-    padding: 10px 20px;
-    cursor: pointer;
-  }
-  
-  .sidebar .menu .active {
-    background-color: #c0dfb8;
-    border-radius: 5px;
-  }
-  
-  .sidebar .footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .logout-btn {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .settings {
-    font-size: 20px;
-    cursor: pointer;
-  }
-  
-  .dashboard {
-    flex: 1;
-    padding: 20px;
-    background-color: #f9f9f9;
-  }
-  
-  .score-section,
-  .badge-section,
-  .ranking-section {
-    margin-bottom: 20px;
-  }
-  
-  .score-section p {
-    font-size: 2em;
-    margin: 0;
-  }
-  
-  .badge-section {
-    text-align: center;
-  }
-  
-  .badge img {
-    width: 50px;
-    height: 50px;
-  }
-  
-  .ranking-section table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .ranking-section th,
-  .ranking-section td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-  }
-  
+/* Score Board Container */
+.score-board-container {
+  position: absolute;
+  width: 339px;
+  height: 249px;
+  left: 416px;
+  top: 42px;
+  background: #F9F9F9;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 7.49px;
+}
+
+/* Score Title */
+.score-title {
+  position: absolute;
+  width: 174px;
+  height: 50px;
+  left: 447px;
+  top: 74px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 60px;
+  display: flex;
+  align-items: center;
+  color: #000000;
+}
+
+/* Score Value */
+.score-value {
+  position: absolute;
+  width: 221px;
+  height: 50px;
+  left: 475px;
+  top: 187px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 64px;
+  line-height: 96px;
+  display: flex;
+  align-items: center;
+  color: #000000;
+}
+
+/* Horizontal Divider */
+.horizontal-divider {
+  position: absolute;
+  width: 339px;
+  height: 0;
+  left: 416px;
+  top: 154px;
+  border: 1px solid #E0E0E0;
+}
+
+/* Badge Earned Container */
+.badge-earned-container {
+  position: absolute;
+  width: 339px;
+  height: 299px;
+  left: 416px;
+  top: 324px;
+  background: #F9F9F9;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 7.49px;
+}
+
+/* Horizontal Divider */
+.badge-divider {
+  position: absolute;
+  width: 339px;
+  height: 0;
+  left: 416px;
+  top: 436px;
+  border: 1px solid #E0E0E0;
+}
+
+/* Badge Earned Title */
+.badge-earned-title {
+  position: absolute;
+  width: 302px;
+  height: 60px;
+  left: 453px;
+  top: 354px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 54px;
+  display: flex;
+  align-items: center;
+  color: #000000;
+}
+
+/* Badge Icon */
+.badge-icon {
+  position: absolute;
+  width: 100px;
+  height: 110px;
+  left: 543px;
+  top: 458px;
+  background: url("C:\Users\minzi\Downloads\Badge.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Completed Text */
+.completed-text {
+  position: absolute;
+  width: 219px;
+  height: 50px;
+  left: 483px;
+  top: 568px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+  color: #000000;
+}
+
+/* Quiz Ranking Container */
+.quiz-ranking-container {
+  position: absolute;
+  width: 601px;
+  height: 582px;
+  left: 795px;
+  top: 44px;
+  background: #F9F9F9;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 7.49px;
+}
+
+/* Quiz Ranking Title */
+.quiz-ranking-title {
+  position: absolute;
+  width: 296px;
+  height: 50px;
+  left: 821px;
+  top: 77px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 60px;
+  display: flex;
+  align-items: center;
+  color: #000000;
+}
+
+/* Horizontal Divider */
+.quiz-divider {
+  position: absolute;
+  width: 601px;
+  height: 0;
+  left: 795px;
+  top: 158px;
+  border: 1px solid #E0E0E0;
+}
+
+/* Ranking Username and Score */
+.ranking-header {
+  position: absolute;
+  width: 497px;
+  height: 50px;
+  left: 847px;
+  top: 179px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+  color: #000000;
+}
+
+/* Ranking Details */
+.ranking-details {
+  position: absolute;
+  left: 59.22%;
+  right: 6.19%;
+  top: 34.53%;
+  bottom: 24.81%;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #000000;
+  opacity: 0.4;
+}
+

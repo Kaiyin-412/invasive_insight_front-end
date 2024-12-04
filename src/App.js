@@ -8,11 +8,12 @@ import LandingPage from './Landing_page/Main_Landing_Page';
 import QuizApp from './Quiz/QuizApp';
 import ForumPage from './Main_frame/Forum_frame/Forum_page';
 import QuizList from './Main_frame/QuizList_frame/QuizListAll/QuizListAll';
+import QuizResultPage from './Main_frame/QuizResult_frame/QuizResultPage';
 import { BrowserRouter as Router,Route,Routes } from 'react-router-dom';
 import { FontSizeProvider } from './FontSize/FontSizeContext';
 
 // for debug
-// import SideBar from './Main_frame/SideBar/SideBar';
+import SideBar from './Main_frame/SideBar/SideBar';
 // import Settings from './Main_frame/SideBar/Settings';
 
 function App() {
@@ -20,7 +21,8 @@ function App() {
   <FontSizeProvider>
     <Router>
       <Routes>
-        <Route path="/" element={<Login/>}/>
+      <Route path="/quiz-result" element={<QuizResultPage/>} />
+        {/* <Route path="/" element={<Login/>}/> */}
         <Route path="/SignUp" element={<SignUp/>}/>
         <Route path="/PasswordPage" element={<PasswordPage/>}/>
         <Route path="/PasswordPage2" element={<PasswordPage2/>}/>
