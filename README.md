@@ -27,3 +27,63 @@ npm start
 cd invasive_insight_front-end
 code .
 ```
+
+### route path
+6. for front-end 
+a) Login page 
+```sh
+verify user using username and password
+http://localhost:3000/
+```
+b) sign up page
+```sh
+sign up a new user with username , email , password 
+verify email and send otp
+http://localhost:3000/SignUp
+```
+
+c) Password reset page
+```sh
+user will enter a email
+http://localhost:3000/PasswordPage
+```
+
+d) Password reset page 2
+```sh
+send otp to verify the email
+http://localhost:3000/PasswordPage2
+```
+
+e) Password Reset 
+```sh
+user enter a new password send to backend to update the new password 
+http://localhost:3000/PasswordPage2/PasswordReset
+```
+
+f) Forum Page
+```sh
+user can post forum with topic and content , need to send to backend and save in database
+get from backend about the forum content ( topic , content , user who post the forum )
+http://localhost:3000/LandingPage/Forum
+```
+
+g) Quiz page 
+```sh
+get question and hint from backend
+send the score to the backend 
+get the quiz ranking from the backend ( rank , username , score)
+http://localhost:3000/LandingPage/QuizList/Quiz
+```
+
+h) Dashboard page 
+```sh
+get the quiz had be done by user ( No , QuizName , score)
+get the number of badges earn by user ( image save at front end )
+http://localhost:3000/LandingPage/Dashboard
+```
+
+i) Profile page
+```sh
+
+http://localhost:3000/LandingPage/Profile
+```
