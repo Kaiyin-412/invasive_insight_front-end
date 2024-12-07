@@ -1,10 +1,13 @@
 .login-container{
+    height: 100vh;
+    width: 100vw;
     display: flex;
    /* margin: auto;*/
     /* width: 1440px;
     height: 669px; */
     /* margin-top: 30px; */
    /* border: 1px solid #f5f4f4;*/
+   overflow: hidden;
 }
 
 /* Centre the form */
@@ -12,6 +15,7 @@
     height: 100%;
     display: block;
     margin: auto;
+    margin-top: 50px;
 }
 
 
@@ -57,8 +61,9 @@
     font-weight: bold;
     font-family: 'Poppins';
     color: white;
-    
+    cursor: pointer;
 }
+
 
 /* Remove the underline for the url*/
 .login-container a{
