@@ -14,10 +14,13 @@ function Sign_up () {
 
   // when submit the form , verify become true and will pop out verify email window
   const handleVerify = (e) => {
-    setVerify(true); 
+    const username = document.getElementById('username').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    if (username && email && password){
+      setVerify(true); 
     e.preventDefault();
-    console.log("form submitted"); //debug purpose
-    
+    }
   };
 
   // function to get back login page when on the login
@@ -28,7 +31,8 @@ function Sign_up () {
 
 
   // zj: this function will send json to backend to sign up a person
-  const handleSignUpAttempt = async () =>{
+  const handleSignUpAttempt = async (e) =>{
+    // e.preventDefault(); // prevent refresh
     try {
       const username = document.getElementById('username').value;
       const email = document.getElementById('email').value;
@@ -37,7 +41,7 @@ function Sign_up () {
       await fetch(`http://localhost:5000/email/send_email?target=${email}`)
       .then((res) => res.json()) // convert response into json
       .then((responseJSON) => {
-        if (responseJSON.message == "Application attempted to send email, check CLI for any errors"){
+        if (responseJSON.message === "Application attempted to send email, check CLI for any errors"){
           // the application has tried to send the email
           console.log("Backend tried to send the email. Please check your inbox");
         }
@@ -61,7 +65,7 @@ function Sign_up () {
           }),
       });
       const data = await res.json();
-      
+      console.log(data);
     } catch (err) {
       console.log(err);
     }
@@ -86,7 +90,7 @@ function Sign_up () {
               <label for="confirm_password">Confirm your Password<input name="confirm_password" id="confirm_password" type="password" required placeholder="Enter your password"/>
               </label>
 
-              <button type="submit" onClick={handleSignUpAttempt}>Signup</button>
+              <button type="submit" onClick={(e)=>{handleSignUpAttempt(e);handleVerify(e);}}>Signup</button>
 
           </form>
          

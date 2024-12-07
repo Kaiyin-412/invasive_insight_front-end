@@ -1,7 +1,8 @@
 import React, { useContext } from 'react'
 import './login.css';
 import loginImage from '../../image/Login_page_image/login_image.png'; //image for the login page
-import { redirect, useNavigate } from 'react-router-dom';
+// import { redirect, useNavigate } from 'react-router-dom';
+import {useNavigate } from 'react-router-dom';
 import { FontSizeContext } from '../../FontSize/FontSizeContext';
 
 
@@ -31,7 +32,8 @@ function Login() {
         navigate("/LandingPage");
     }
 
-    const handleLoginAttempt = async () =>{
+    const handleLoginAttempt = async (e) =>{
+        // e.preventDefault(); // prevent refresh
         try {
         const res = await fetch("http://127.0.0.1:5000/login",{
             method: 'POST',
@@ -44,8 +46,8 @@ function Login() {
             }),
         });
         const data = await res.json();
-        if (data.message == "Login successful"){
-            navigate("/LandingPage"); // this does not work?
+        if (data.message === "Login successful"){
+            NavigateToLanding(e); // if success naviagte to landing page
         }else{
             console.log("Incorrect username or password"); // kai yin, implement this in GUI
         }
@@ -60,9 +62,9 @@ function Login() {
         <div>
             <img src={loginImage} alt="loginImage"/>
         </div>
-        <div class="login-section">
+        <div className="login-section">
             <h1>Welcome Back !</h1>
-            <form class="login-form">
+            <form className="login-form">
 
                 <label for="username">Username
                 <input  id="username"

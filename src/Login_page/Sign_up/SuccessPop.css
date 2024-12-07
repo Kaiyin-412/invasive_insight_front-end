@@ -1,0 +1,41 @@
+.SuccesssPop-container{
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    backdrop-filter: blur(8px);
+    z-index: 9999;
+}
+
+.SuccessPop-component{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.SuccessPop-component h1 {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.SuccessPop-component button{
+    background-color: #3A5B22;
+    border :  #3A5B22;
+    font-weight: bold;
+    font-family: 'Poppins';
+    color: white;
+    border-radius: 10px;
+    height: 40px;
+    width:70px;
+    margin-top: 30px;
+}
+
+.SuccessPop-component button:hover{
+    transform: scale(1.2);
+}
