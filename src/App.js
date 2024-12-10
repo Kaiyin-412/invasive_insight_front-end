@@ -10,6 +10,7 @@ import ForumPage from './Main_frame/Forum_frame/Forum_page';
 import QuizList from './Main_frame/QuizList_frame/QuizListAll/QuizListAll';
 import { BrowserRouter as Router,Route,Routes } from 'react-router-dom';
 import { FontSizeProvider } from './FontSize/FontSizeContext';
+import DashboardPage from './Main_frame/Dashboard_frame/DashboardPage';
 
 // for debug
 // import SideBar from './Main_frame/SideBar/SideBar';
@@ -31,6 +32,7 @@ function App() {
         <Route path="/LandingPage/QuizList" element={<QuizList/>}/>
         {/* <Route path="/SideBar" element={<SideBar/>}/>
         <Route path="/Settings" element={<Settings/>}/> */}
+        <Route path="/dashboard" element={<DashboardPage />} />
       </Routes>
     </Router>
   </FontSizeProvider>
