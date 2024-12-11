@@ -26,12 +26,13 @@
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
     position: relative;
     margin-top: 150px;
-    margin-left: -1400px;
+    margin-left: -1375px;
 }
 
 .quiz-body .progress-container {
     width: 80%; /* Slightly wider than the progress bar */
     height: 30px; /* Slightly taller than the progress bar */
+    left: 20px;
     background-color: white;
     border-radius: 15px;
     display: flex;
@@ -118,20 +119,22 @@
 .quiz-body .check-button {
     position: fixed; /* Change to fixed to position relative to viewport */
     bottom: 4%; /* Position at the bottom of the page */
-    right: 5%; /* Position at the right side of the page */
+    right: 10%; /* Position at the right side of the page */
     background-color: #74d177;
     color: white;
     padding: 10px 20px;
+    width: 100px;
+    height: 45px;
     border: none;
-    border-radius: 5px;
+    border-radius: 15px;
     cursor: pointer;
-    z-index: 10; /* Ensure it stays above other elements */
+    z-index: 0;/* Ensure it stays above other elements */
 }
 
 .quiz-body .hint-button-container {
     position: fixed;
-    left: 5%;
-    bottom: 5%;
+    left: 7%;
+    bottom: 7%;
     display: flex;
     align-items: center;
     padding: 8px;
@@ -146,6 +149,7 @@
 .quiz-body .hint-button-container.expanded {
     border-radius: 25px; /* Adjusted to expand from circular to rounded rectangle */
     padding: 8px 16px;
+    
 }
 
 .quiz-body .hint-logo {
