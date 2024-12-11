@@ -61,7 +61,7 @@ function SideBar() {
               <FaChartBar className='icon'/> <p>Dashboard</p>
             </button>
 
-            <button className='button-hover' onClick={(e)=>NavigatePage(e,"/LandingPage/Quiz")}>
+            <button className='button-hover' onClick={(e)=>NavigatePage(e,"/LandingPage/QuizList")}>
               <FaFlag className='icon'/> <p>Quiz</p>
             </button>
 
