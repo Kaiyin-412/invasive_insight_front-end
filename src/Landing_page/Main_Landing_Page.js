@@ -7,7 +7,6 @@ import Button_img from '../image/Main_Lading_Page/Button/Button_img.png'
 import { useNavigate } from 'react-router-dom';
 import { FontSizeContext } from '../FontSize/FontSizeContext';
 
-
 // render menu items 
 function GenerateMenu (props){
   let path = "./" + props.menu_item;

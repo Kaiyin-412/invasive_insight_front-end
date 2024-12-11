@@ -15,6 +15,7 @@ import ProfilePage from './Main_frame/Profile_frame/ProfilePage';
 import { BrowserRouter as Router,Route,Routes } from 'react-router-dom';
 import { FontSizeProvider } from './FontSize/FontSizeContext';
 import DashboardPage from './Main_frame/Dashboard_frame/DashboardPage';
+import Chatbot from './AiChatBox/MainSection'; 
 
 // // for debug
 // import SideBar from './Main_frame/SideBar/SideBar';
@@ -37,6 +38,7 @@ function App() {
         <Route path="LandingPage/Dashboard" element={<DashboardPage />} />
         <Route path="/LandingPage/Profile" element={<ProfilePage/>}/>
         <Route path="/LandingPage/QuizList/Quiz/QuizResult" element={<QuizResultPage/>} />
+        <Route path="/LandingPage/Chatbot" element={<Chatbot />} />
       </Routes>
     </Router>
   </FontSizeProvider>
