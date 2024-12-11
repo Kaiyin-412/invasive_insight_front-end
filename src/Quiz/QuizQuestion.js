@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-// import './QuizQuestion.css';
+import './QuizQuestion.css';
 
 function QuizQuestion({ questionData, onProceed, timeUp }) {
     const [selectedOption, setSelectedOption] = useState(null);
@@ -51,7 +51,7 @@ function QuizQuestion({ questionData, onProceed, timeUp }) {
     };
 
     return (
-        <div className="quiz-app-container">
+        <div className="quiz-body">
             <div className="quiz-container">
                 <div className="marks-container">
                     <span className="star-icon">⭐</span>
@@ -63,7 +63,7 @@ function QuizQuestion({ questionData, onProceed, timeUp }) {
 
                 {questionData.image && (
                     <div className="question-image">
-                        <img src={questionData.image} alt="Question" />
+                        <img src={questionData.image} alt="Question Image" />
                     </div>
                 )}
 

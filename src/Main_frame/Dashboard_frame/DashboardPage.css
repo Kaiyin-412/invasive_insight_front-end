@@ -1,0 +1,111 @@
+.dashboard-container {
+    display: flex;
+  }
+  
+  .dashboard-content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .dashboard-sections {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  
+  .dashboard-section {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-height: 80vh; /* Stretch sections to fill the bottom */
+  }
+  
+  .quiz-progress {
+    width: 700px; /* Increased width for Quiz Progress */
+  }
+  
+  .badges {
+    width: 339px; /* Badges section width remains the same */
+  }
+  
+  /* Headings */
+  .dashboard-section h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  
+  .dashboard-section hr {
+    border: none;
+    border-top: 2px solid #E0E0E0;
+    margin-bottom: 20px;
+  }
+  
+  /* Quiz Progress Header */
+  .quiz-progress-header {
+    display: grid;
+    grid-template-columns: 50px 1fr 100px 80px; /* Adjust column widths */
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #000; /* Black for titles */
+    text-align: left; /* Left-align all headers by default */
+  }
+  
+  .quiz-progress-header span:last-child {
+    text-align: right; /* Align the "Ranking" header to the right */
+  }
+
+
+
+  .quiz-progress-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .quiz-item {
+    display: grid;
+    grid-template-columns: 50px 1fr 100px 80px; /* Align content to match header */
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #808080; /* Grey color for content */
+  }
+  
+  .quiz-item span:last-child {
+    text-align: right; /* Align the "Ranking" values to the right */
+  }
+  
+  .quiz-item span:nth-child(4) {
+    text-align: center; /* Center-align the "Ranking" values */
+  }
+  /* Badges Grid */
+  .badges-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px; /* Add more space between badges */
+  }
+  
+  .badge-item {
+    text-align: center;
+  }
+  
+  .badge-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+  }
+  
+  .badge-item p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: #808080; /* Grey color for badge text */
+    margin-top: 5px;
+  }
+  
