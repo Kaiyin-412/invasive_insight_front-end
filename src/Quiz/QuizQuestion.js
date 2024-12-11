@@ -51,7 +51,7 @@ function QuizQuestion({ questionData, onProceed, timeUp }) {
     };
 
     return (
-        <div className="quiz-page">
+        <div className="quiz-body">
             <div className="quiz-container">
                 <div className="marks-container">
                     <span className="star-icon">⭐</span>

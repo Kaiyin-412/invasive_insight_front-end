@@ -8,6 +8,7 @@ import LandingPage from './Landing_page/Main_Landing_Page';
 import Quiz from './Quiz/QuizApp';
 import ForumPage from './Main_frame/Forum_frame/Forum_page';
 import QuizList from './Main_frame/QuizList_frame/QuizListAll/QuizListAll';
+import ProfilePage from './Main_frame/Profile_frame/ProfilePage';
 import { BrowserRouter as Router,Route,Routes } from 'react-router-dom';
 import { FontSizeProvider } from './FontSize/FontSizeContext';
 import DashboardPage from './Main_frame/Dashboard_frame/DashboardPage';
@@ -31,6 +32,7 @@ function App() {
         <Route path="/LandingPage/Forum" element={<ForumPage/>}/>
         <Route path="/LandingPage/QuizList" element={<QuizList/>}/>
         <Route path="LandingPage/Dashboard" element={<DashboardPage />} />
+        <Route path="/LandingPage/Profile" element={<ProfilePage/>}/>
       </Routes>
     </Router>
   </FontSizeProvider>
