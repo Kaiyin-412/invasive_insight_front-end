@@ -11,6 +11,7 @@ import QuizList from './Main_frame/QuizList_frame/QuizListAll/QuizListAll';
 import { BrowserRouter as Router,Route,Routes } from 'react-router-dom';
 import { FontSizeProvider } from './FontSize/FontSizeContext';
 import DashboardPage from './Main_frame/Dashboard_frame/DashboardPage';
+import Chatbot from './AiChatBox/MainSection'; 
 
 // for debug
 // import SideBar from './Main_frame/SideBar/SideBar';
@@ -33,6 +34,8 @@ function App() {
         {/* <Route path="/SideBar" element={<SideBar/>}/>
         <Route path="/Settings" element={<Settings/>}/> */}
         <Route path="/dashboard" element={<DashboardPage />} />
+        <Route path="/LandingPage/Chatbot" element={<Chatbot />} />
+
       </Routes>
     </Router>
   </FontSizeProvider>

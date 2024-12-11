@@ -1,0 +1,72 @@
+.chatbot {
+    width: 100%;
+    margin: 20px auto;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  
+  
+  .user-message {
+    background: #e5e5e5;
+    color: black;
+    padding: 11px;
+    margin: 10px ;
+    border-radius: 20px;
+    align-self: flex-end; /* Align user message to the right */
+    width: fit-content; /* Adjust width to fit the content */
+    max-width: 98%; /* Optional: You can limit the width to avoid long lines */
+    text-align: left;
+  }
+  
+  .bot-message {
+    background: #cff7d3;
+    padding: 11px;
+    margin: 10px;
+    border-radius: 20px;
+    align-self: flex-start; 
+    width: fit-content; /* Adjust width to fit the content */
+    max-width: 98%; /* Optional: You can limit the width to avoid long lines */
+    text-align: left;
+  }
+  
+  .chat-input {
+    display: flex;
+    border-top: 0px;
+    font-weight: bold;
+  }
+  
+  .chat-input input {
+    flex: 1;
+    padding: 10px 20px; /* Add padding to make the capsule more prominent */
+    outline: none;
+    border : 0px;
+    border-radius: 50px; /* Capsule shape */
+    background-color: #e0e0e0; /* Set background to #e0e0e0 */
+    color: #000000; /* Adjust text color */
+    font-weight: bold;
+    font-size: 1rem; /* Adjust font size if needed */
+    margin-top: 20px;
+    margin-right: 5px;
+    text-align: center;
+    height: 40px;
+  }
+  
+  .chat-input button {
+    padding: 0; /* Remove padding */
+    width: 30px; /* Set width to a fixed value */
+    height: 30px; /* Set height to the same value as width */
+    background: black;
+    color: #e0e0e0;
+    border-radius: 50%; /* Make the button a circle */
+    border: 0px;
+    cursor: pointer;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    margin-top: 23px;
+    font-weight: 200;
+  }
+  
