@@ -2,6 +2,7 @@ import React from 'react'
 import './Component.css';
 // import TerrestrialInvasiveMammalsImg from '../../../image/Main_Frame/Terrestrial Invasive Mammals/Terrestrial_Invasive_Mammals_img.jpg';
 import { MdBookmark } from 'react-icons/md';
+import { useNavigate } from 'react-router-dom';
 
 function Component({quiz,toggleBookmarked}) {
 
@@ -10,6 +11,12 @@ function Component({quiz,toggleBookmarked}) {
     color : quiz.bookmarked ? 'green' : 'rgb(223, 248, 223)'
   };
 
+  const navigate = useNavigate();
+
+  const NavigateToQuiz =(e)=>{
+    e.preventDefault();
+    navigate('./Quiz');
+  }
   
   return (
     <div className='Component-container'>
@@ -26,7 +33,7 @@ function Component({quiz,toggleBookmarked}) {
           <h1>{quiz.title}</h1>
         </div>
         <div className='Component-quiz'>
-          <a href='./Quiz'>Start Quiz</a>
+          <a href='./LandingPage/QuizList/Quiz' onClick={(e)=>NavigateToQuiz(e)}>Start Quiz</a>
         </div>
     </div>
   )

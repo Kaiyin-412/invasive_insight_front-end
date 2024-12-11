@@ -33,7 +33,7 @@ function Login() {
     }
 
     const handleLoginAttempt = async (e) =>{
-        // e.preventDefault(); // prevent refresh
+        e.preventDefault(); // prevent refresh
         try {
         const res = await fetch("http://127.0.0.1:5000/login",{
             method: 'POST',
