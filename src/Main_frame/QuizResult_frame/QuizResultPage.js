@@ -1,7 +1,7 @@
 import React from 'react'
 import SideBar from '../SideBar/SideBar'
 import './quizresult.css';
-
+import Badges from '../../image/Badge.png';
 function QuizResultPage(){
   const userScore = 18; // Replace with dynamic data if available
   const totalScore = 20; // Replace with dynamic data if available
@@ -32,7 +32,7 @@ function QuizResultPage(){
           <div className="divider-line"></div>
           <div className="badge">
             <img
-              src="C:\Users\minzi\invasive_insight_front-end\src\image\Badge.png"
+              src={Badges}
               alt="Badge"
             />
             <p>Completed First Quiz</p>
