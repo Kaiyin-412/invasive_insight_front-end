@@ -38,7 +38,7 @@ function App() {
         <Route path="LandingPage/Dashboard" element={<DashboardPage />} />
         <Route path="/LandingPage/Profile" element={<ProfilePage/>}/>
         <Route path="/LandingPage/QuizList/Quiz/QuizResult" element={<QuizResultPage/>} />
-        <Route path="/LandingPage/Chatbot" element={<Chatbot />} />
+        <Route path="/LandingPage/Chatbot" element={<Chatbot/>} />
       </Routes>
     </Router>
   </FontSizeProvider>

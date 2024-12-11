@@ -47,7 +47,7 @@ function Password_page2 () {
     try{
       // send a get request to backend 
       const response = await fetch(`http://127.0.0.1:5000/forgetPassword/verify_user?otp=${otpString}`);
-      const responseJSON = response.json();
+      const responseJSON = await response.json();
 
       if(responseJSON.Verified){
         // to call out success pop out frame 
@@ -94,10 +94,10 @@ function Password_page2 () {
             <p>Haven't got the email yet? <a href="/PasswordPage" onClick={NavigateBack}>Resend email</a></p>
           </div>
         </div>
+        {success && (
+          <SuccessPop Title=" Verify Success" path='./PasswordReset'/>
+        )}
       </div>
-      {success && (
-        <SuccessPop Tittle="Verify Successfully" path='/PasswordPage2/PasswordReset'/>
-      )}
     </div>
   )
 }

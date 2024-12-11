@@ -10,12 +10,12 @@ function Password_reset () {
     // track the status of the password 
     const [check, setChecking] = useState(false);
 
-    const new_password = document.getElementById("new_password").value; // get password from user 
-    const confirm_password = document.getElementById("confirm_password").value; // get password from user 
-
     // checking whether the password match the confirm password 
     const CheckPassowrd =(e)=>{
         e.preventDefault();
+        const new_password = document.getElementById("new_password").value; // get password from user 
+        const confirm_password = document.getElementById("confirm_password").value; // get password from user 
+    
         if (new_password !== confirm_password){ 
             setChecking(true); // display password mismatch message 
         }else{
@@ -35,6 +35,7 @@ function Password_reset () {
 
     const handlePassword = async (e)=>{
         e.preventDefault();
+        const new_password = document.getElementById("new_password").value; // get password from user     
         try{
             const res = await fetch(`http://127.0.0.1:5000/forgetPassword/change_password?password=${new_password}`);
             const responseJSON = await res.json();
@@ -78,7 +79,7 @@ function Password_reset () {
         }
         {
             status && (
-                <SuccessPop Tittle="Password change successfully" path="/"/>
+                <SuccessPop Title="Password change successfully" path="/"/>
             )
         }
     </div>
