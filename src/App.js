@@ -36,16 +36,11 @@ function App() {
         <Route path="/LandingPage/QuizList/Quiz" element={<Quiz/>}/>
         <Route path="/LandingPage/Forum" element={<ForumPage/>}/>
         <Route path="/LandingPage/QuizList" element={<QuizList/>}/>
-<<<<<<< HEAD
         {/* <Route path="/SideBar" element={<SideBar/>}/>
         <Route path="/Settings" element={<Settings/>}/> */}
         <Route path="/dashboard" element={<DashboardPage />} />
         <Route path="/LandingPage/Chatbot" element={<Chatbot />} />
 
-=======
-        <Route path="LandingPage/Dashboard" element={<DashboardPage />} />
-        <Route path="/LandingPage/Profile" element={<ProfilePage/>}/>
->>>>>>> dcc36593f429d072581ab015b36163dfe3579a6d
       </Routes>
     </Router>
   </FontSizeProvider>
