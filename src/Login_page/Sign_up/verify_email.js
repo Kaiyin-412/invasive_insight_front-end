@@ -36,7 +36,7 @@ function Verify_email() {
 
   const handleChange = (e, index) => {
     const value = e.target.value;
-    if (/^\d$/.test(value) || value === '') { // Allow only numeric input
+    if (/^\d$/.test(value) || value ==='' ) { // Allow only numeric input
       const newOtp = [...otp];
       newOtp[index] = value;
       setOtp(newOtp);
@@ -99,7 +99,7 @@ function Verify_email() {
         </form>
       </div>
       {Success && (
-        <SuccessPop/>
+        <SuccessPop Title="Sign Up Successfully" path='/'/>
       )}
     </div>
   )

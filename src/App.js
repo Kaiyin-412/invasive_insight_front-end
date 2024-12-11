@@ -16,17 +16,16 @@ import { BrowserRouter as Router,Route,Routes } from 'react-router-dom';
 import { FontSizeProvider } from './FontSize/FontSizeContext';
 import DashboardPage from './Main_frame/Dashboard_frame/DashboardPage';
 
-// for debug
-import SideBar from './Main_frame/SideBar/SideBar';
-// import Settings from './Main_frame/SideBar/Settings';
+// // for debug
+// import SideBar from './Main_frame/SideBar/SideBar';
+// // import Settings from './Main_frame/SideBar/Settings';
 
 function App() {
   return (
   <FontSizeProvider>
     <Router>
       <Routes>
-      <Route path="/quiz-result" element={<QuizResultPage/>} />
-        {/* <Route path="/" element={<Login/>}/> */}
+        <Route path="/" element={<Login/>}/>
         <Route path="/SignUp" element={<SignUp/>}/>
         <Route path="/PasswordPage" element={<PasswordPage/>}/>
         <Route path="/PasswordPage2" element={<PasswordPage2/>}/>
@@ -37,6 +36,7 @@ function App() {
         <Route path="/LandingPage/QuizList" element={<QuizList/>}/>
         <Route path="LandingPage/Dashboard" element={<DashboardPage />} />
         <Route path="/LandingPage/Profile" element={<ProfilePage/>}/>
+        <Route path="/LandingPage/QuizList/Quiz/QuizResult" element={<QuizResultPage/>} />
       </Routes>
     </Router>
   </FontSizeProvider>
