@@ -75,6 +75,9 @@ import QuizQuestion from './QuizQuestion.js';
             <div className="feedback-box correct-feedback">
               <p>Quiz Completed! 🎉</p>
               <p>You scored {score} out of {quizData.length}.</p>
+              <button className="navigation-button" onClick={() => {/* extra navigatebutton*/}}>
+              Go to Result Page
+            </button>
             </div>
           </div>
         ) : (
