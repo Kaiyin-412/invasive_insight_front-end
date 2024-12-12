@@ -11,7 +11,7 @@ function ProfilePage() {
     // for fetching user data from the backend
     const fetchUserData = async () => {
     try {
-      // Replace this with actual API call in production
+      // Replace with actual API 
       const mockData = {
         username: "WaWa",
         role: "Admin",
