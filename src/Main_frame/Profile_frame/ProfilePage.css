@@ -1,80 +1,123 @@
 .ProfilePage {
-    display: flex;
-  }
-  
-  .ProfileFrame {
-    flex-grow: 1;
-    padding: 20px;
-    background-color: #f4f4f9;
-  }
-  
-  .ProfileBackground {
-    width: 100%;
-    height: 200px;
-    background-image: white;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-  }
-  
-  .ProfileDetails {
-    display: flex;
-    align-items: center;
-    margin-top: -50px; /* To overlap the background */
-    padding: 20px;
-    background-color: #ffffff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-  }
-  
-  .ProfileImage {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    border: 3px solid #ffffff;
-    margin-right: 20px;
-  }
-  
-  .UserInfo {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .Username {
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-  
-  .UserRole {
-    font-size: 1rem;
-    color: #666;
-  }
-  
-  .ProfileContent {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-  }
-  
-  .UserInfoColumns {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-  }
-  
-  .Achievements {
-    text-align: right;
-  }
-  
-  .Badges {
-    display: flex;
-    gap: 10px;
-  }
-  
-  .Badges img {
-    width: 50px;
-    height: 50px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
+  display: flex;
+}
+
+.ProfileFrame {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: #f4f4f9;
+}
+
+.ProfileBackground {
+  width: 100%;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.ProfileDetails {
+  display: flex;
+  align-items: center;
+  margin-top: -50px; /* To overlap the background */
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.ProfileImage {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid #ffffff;
+  margin-right: 20px;
+  z-index: 10;
+}
+
+.UserInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.Username {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 2rem;
+  margin-right: 2rem;
+}
+
+.UserRole {
+  font-size: 1rem;
+  color: #666;
+  margin-right: 2rem;
+}
+
+.ProfileContent {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.UserInfoColumns {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  flex: 1; /* Ensures equal space for left and right columns */
+  margin-top: 3rem;
+}
+
+.InfoBox {
+  /* background-color: #ffffff; */
+  background-color: rgba(255, 255, 255, 0.0);
+  padding: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.0);
+  border-radius: 8px;
+}
+
+.InfoBoxTitle {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.InfoBoxContent {
+  padding: 10px;
+  background-color: #f4f4f9;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #777;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.ProfileContent {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.Achievements {
+  flex: 0.5; /* Ensures proper sizing for achievements container */
+  text-align: left;
+  margin-top: 1rem;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 5%;
+}
+
+.Badges {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.Badges img {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.0);
+}

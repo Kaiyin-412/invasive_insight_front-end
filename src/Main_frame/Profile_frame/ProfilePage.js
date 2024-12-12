@@ -1,49 +1,101 @@
-import React from 'react'
-import SideBar from '../SideBar/SideBar'
-import "./ProfilePage.css";
+import React, { useEffect, useState } from 'react';
+import SideBar from '../SideBar/SideBar';
+import './ProfilePage.css';
+import backgroundImg from '../../image/Quiz_background_image/latestquizbg.jpg';
+import badgeImage from '../../image/Dashboard_image/badge.png';
 
 function ProfilePage() {
+  const [userData, setUserData] = useState({}); 
+
+  useEffect(() => {
+    // for fetching user data from the backend
+    const fetchUserData = async () => {
+    try {
+      // Replace with actual API 
+      const mockData = {
+        username: "WaWa",
+        role: "Admin",
+        fullName: "WaWa",
+        gender: "Male",
+        email: "wawa@jiajia.com",
+        phone: "012-3456789",
+        profileImage: backgroundImg, 
+        backgroundImage: backgroundImg, 
+        badges: [
+          badgeImage,
+          badgeImage, 
+          badgeImage, 
+          badgeImage,
+          badgeImage,
+          badgeImage,
+        ],
+      };
+
+      setUserData(mockData);
+    } catch (error) {
+      console.error("Error fetching user data:", error);
+    }
+  };
+
+    fetchUserData();
+  }, []);
+
   return (
     <div className="ProfilePage">
       <SideBar />
       <div className="ProfileFrame">
-        {/* Profile Background */}
-        <div className="ProfileBackground"></div>
-
-        {/* Profile Image and User Details */}
+        <div 
+  className="ProfileBackground" 
+  style={{ backgroundImage: `url(${userData.backgroundImage || backgroundImg})` }}
+></div>
         <div className="ProfileDetails">
           <img
-            src="/path-to-profile-image.jpg"
+            src={userData.profileImage || backgroundImg}
             alt="Profile"
             className="ProfileImage"
           />
           <div className="UserInfo">
-            <p className="Username">John Doe</p>
-            <p className="UserRole">Admin</p>
+            <p className="Username">{userData.username || 'Username'}</p>
+            <p className="UserRole">{userData.role || 'Role'}</p>
           </div>
         </div>
-
-        {/* Info and Achievements Section */}
         <div className="ProfileContent">
-          <div className="UserInfoColumns">
-            <div>
-              <p><strong>Full Name:</strong> John Doe</p>
-              <p><strong>Gender:</strong> Male</p>
-            </div>
-            <div>
-              <p><strong>Email:</strong> john.doe@example.com</p>
-              <p><strong>Phone:</strong> +1234567890</p>
-            </div>
-          </div>
-
-          <div className="Achievements">
-            <p><strong>Achievements:</strong></p>
-            <div className="Badges">
-              <img src="/path-to-badge1.png" alt="Badge 1" />
-              <img src="/path-to-badge2.png" alt="Badge 2" />
-            </div>
-          </div>
-        </div>
+  <div className="UserInfoColumns">
+    {/* Left Column */}
+    <div className="InfoBox">
+      <p className="InfoBoxTitle">Full Name</p>
+      <div className="InfoBoxContent">{userData.fullName || 'UserName'}</div>
+    </div>
+    <div className="InfoBox">
+      <p className="InfoBoxTitle">Gender</p>
+      <div className="InfoBoxContent">{userData.gender || 'Gender'}</div>
+    </div>
+  </div>
+  {/* Right Column */}
+  <div className="UserInfoColumns">
+    <div className="InfoBox">
+      <p className="InfoBoxTitle">Email</p>
+      <div className="InfoBoxContent">{userData.email || 'wawa@gmail.com'}</div>
+    </div>
+    <div className="InfoBox">
+      <p className="InfoBoxTitle">Phone</p>
+      <div className="InfoBoxContent">{userData.phone || '012-34567890'}</div>
+    </div>
+  </div>
+  {/* Achievements */}
+  <div className="Achievements">
+    <p><strong>Achievements:</strong></p>
+    <div className="Badges">
+      {userData.badges && userData.badges.length > 0 ? (
+        userData.badges.map((badge, index) => (
+          <img key={index} src={badge} alt={`Badge ${index + 1}`} />
+        ))
+      ) : (
+        <p>No achievements yet.</p>
+      )}
+    </div>
+  </div>
+</div>
       </div>
     </div>
   );
