@@ -82,7 +82,7 @@ function Main_Landing_Page() {
                     <div className="Main_Landing_page-Quiz">
                       <img src={TerrestrialInvasiveMammalsImg} alt='Tapirus indicus'/>
                       <p>Terrestrial Invasive Mammals</p>
-                      <a href="/LandingPage/QuizList/Quiz"onClick={(e)=>NavigateToQuiz(e)} >Replay Quiz</a>
+                      <a href="/LandingPage/QuizList/Quiz" onClick={(e)=>NavigateToQuiz(e)} >Replay Quiz</a>
                     </div> 
                   </div>
 

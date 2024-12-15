@@ -48,12 +48,6 @@ function Sign_up () {
         }
       })
       .catch((err) => console.log(err));
-
-      // verify email
-      // kai yin, please help me to create the pop up. I dunno how to do it
-
-      // add new user
-      // if(verify){
       const res = await fetch("http://127.0.0.1:5000/add_user",{
           method: 'POST',
           headers: {
