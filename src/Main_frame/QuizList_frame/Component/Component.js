@@ -17,6 +17,14 @@ function Component({quiz,toggleBookmarked}) {
     e.preventDefault();
     navigate('./Quiz');
   }
+
+  const handleBookmarked= async(quizId)=>{
+    try{
+      
+    }catch(err){
+      console.log(err);
+    }
+  }
   
   return (
     <div className='Component-container'>

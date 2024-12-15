@@ -63,7 +63,7 @@ function QuizQuestion({ questionData, onProceed, timeUp }) {
 
                 {questionData.image && (
                     <div className="question-image">
-                        <img src={questionData.image} alt="Question Image" />
+                        <img src={questionData.image} alt="Question" />
                     </div>
                 )}
 

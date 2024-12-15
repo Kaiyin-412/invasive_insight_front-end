@@ -2,7 +2,29 @@ import React from 'react'
 import SideBar from '../SideBar/SideBar'
 import './quizresult.css';
 import Badges from '../../image/Badge.png';
+import axios from 'axios';
+
+
+  // get all user score
+  const getAllScore = async ()=>{
+    try{
+      const res = await axios.get("http://127.0.0.1:5000/users/scores");
+      return res.data.data;
+    }catch(err){
+      console.log(err);
+    }
+  }
+
+// data for all user score and add await to reolve the promise 
+const data =  await getAllScore();
+
+
 function QuizResultPage(){
+
+
+  console.log(data[0].score); // get the first score 
+
+
   const userScore = 18; // Replace with dynamic data if available
   const totalScore = 20; // Replace with dynamic data if available
   const rankingData = [
