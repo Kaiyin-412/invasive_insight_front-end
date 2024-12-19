@@ -3,10 +3,9 @@ import Logo from '../image/Main_Lading_Page/Logo_image/logo.png';
 import './Main_Landing_Page.css';
 import Forest_img from '../image/Main_Lading_Page/Forest_image/Forest_image.png';
 import TerrestrialInvasiveMammalsImg from '../image/Main_Frame/Terrestrial Invasive Mammals/Terrestrial_Invasive_Mammals_img.jpg';
-import Button_img from '../image/Main_Lading_Page/Button/Button_img.png'
+import Button_img from '../image/Main_Lading_Page/Button/Button_img.png';
 import { useNavigate } from 'react-router-dom';
 import { FontSizeContext } from '../FontSize/FontSizeContext';
-
 
 // render menu items 
 function GenerateMenu (props){
@@ -28,10 +27,27 @@ if (props.menu_item === "Quiz") {
 
 function Main_Landing_Page() {
 
+  const navigate = useNavigate();
+
   // handle the change in fontsize
   const {fontSize} = useContext(FontSizeContext);
 
   const Menu = ['Forum','Quiz','Dashboard','Profile'];
+
+  const NavigateAiChat=(e)=>{
+    e.preventDefault();
+    navigate('/LandingPage/Chatbot');
+  }
+
+  const NavigateToQuiz = (e)=>{
+    e.preventDefault();
+    navigate('/LandingPage/QuizList/Quiz');
+  }
+
+  const NavigateToLogin = (e)=>{
+    e.preventDefault();
+    navigate('/');
+  }
 
   return (
     <div className='Main_Landing_page-container' style={{fontSize}}>
@@ -45,7 +61,7 @@ function Main_Landing_Page() {
               <div className='Main_Landing_page-right'>
                 {/* Render the menu items */}
                 {Menu.map((menu) => <GenerateMenu menu_item={menu}/>)}
-                <button type='submit'>Log out</button>
+                <button onClick={(e)=>NavigateToLogin(e)}>Log out</button>
               </div>
 
             </div>
@@ -60,19 +76,19 @@ function Main_Landing_Page() {
                     <div className="Main_Landing_page-Quiz">
                       <img src={TerrestrialInvasiveMammalsImg} alt='Tapirus indicus'/>
                       <p>Terrestrial Invasive Mammals</p>
-                      <a href="./">Replay Quiz</a>
+                      <a href="/LandingPage/QuizList/Quiz" onClick={(e)=>NavigateToQuiz(e)}>Replay Quiz</a>
                     </div> 
 
                     <div className="Main_Landing_page-Quiz">
                       <img src={TerrestrialInvasiveMammalsImg} alt='Tapirus indicus'/>
                       <p>Terrestrial Invasive Mammals</p>
-                      <a href="./">Replay Quiz</a>
+                      <a href="/LandingPage/QuizList/Quiz" onClick={(e)=>NavigateToQuiz(e)} >Replay Quiz</a>
                     </div> 
                   </div>
 
             </div>
             <div className='Main_Landing_page-button'>
-              <button>
+              <button onClick={(e)=>NavigateAiChat(e)}>
                 <img src={Button_img} alt="message symbol"/>
               </button>
             </div>

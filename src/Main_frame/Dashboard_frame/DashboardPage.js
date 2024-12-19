@@ -2,9 +2,27 @@ import React from 'react';
 import SideBar from '../SideBar/SideBar';
 import badgeImage from '../../image/Dashboard_image/badge.png';
 import './DashboardPage.css'; 
+import { id } from '../../Login_page/Login/login';
+import axios from 'axios';
 
+// get the user score
+const getUserScore = async ()=>{
+  try{
+    const res = await axios.get(`http://127.0.0.1:5000/user/users/${id}/score`);
+    return res.data.data;
+  }catch(err){
+    console.log(err);
+  }
+}
+
+// user's score store at here
+const data = await getUserScore();
 
 function DashboardPage() {
+  
+  // for debug
+  console.log(data);
+
   return (
     <div className="dashboard-container">
       <SideBar />

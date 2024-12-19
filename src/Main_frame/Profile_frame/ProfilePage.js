@@ -4,11 +4,38 @@ import './ProfilePage.css';
 import backgroundImg from '../../image/Profile_image/profilebg.jpg';
 import profileImg from '../../image/Profile_image/profileimg.jpg';
 import badgeImage from '../../image/Dashboard_image/badge.png';
+import axios from 'axios';
+import { id } from '../../Login_page/Login/login';
+const getUserDetail = async()=>{
+  let array=[];
+  try{
+    const res = await axios.get("http://127.0.0.1:5000/users");
+    // copy all the data from backend into array
+    array=[...res.data];
+    // filter the user detail based on the user id
+    const user = array.find(user => user.id === id);
+    // use for debug 
+    console.log(user)
+    return user;
+  }catch(err){
+    console.log(err);
+  }
+}
+
+const userDetail = await getUserDetail(); 
 
 function ProfilePage() {
+
   const [userData, setUserData] = useState({});
   const [isEditing, setIsEditing] = useState(false); // Modal state
   const [editedData, setEditedData] = useState({}); // Data being edited
+
+
+  // this the user detail
+  console.log(userDetail);
+
+  const [userData, setUserData] = useState({}); 
+
 
   useEffect(() => {
     // for fetching user data from the backend
