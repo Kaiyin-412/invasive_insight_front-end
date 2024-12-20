@@ -6,62 +6,60 @@ import profileImg from '../../image/Profile_image/profileimg.jpg';
 import badgeImage from '../../image/Dashboard_image/badge.png';
 import axios from 'axios';
 import { id } from '../../Login_page/Login/login';
-const getUserDetail = async()=>{
-  let array=[];
-  try{
-    const res = await axios.get("http://127.0.0.1:5000/users");
-    // copy all the data from backend into array
-    array=[...res.data];
-    // filter the user detail based on the user id
-    const user = array.find(user => user.id === id);
-    // use for debug 
-    console.log(user)
-    return user;
-  }catch(err){
-    console.log(err);
-  }
-}
+// const getUserDetail = async()=>{
+//   let array=[];
+//   try{
+//     const res = await axios.get("http://127.0.0.1:5000/users");
+//     console.log(res.data);
+//     // copy all the data from backend into array
+//     array=[...res.data];
+//     // filter the user detail based on the user id
+//     const user = array.find(user => user.id === id);
+//     // use for debug 
+//     console.log(user)
+//     return  user;
+//   }catch(err){
+//     console.log(err);
+//   }
+// }
 
-const userDetail = await getUserDetail(); 
+// const userDetail =  await getUserDetail(); 
 
 function ProfilePage() {
+
 
   const [userData, setUserData] = useState({});
   const [isEditing, setIsEditing] = useState(false); // Modal state
   const [editedData, setEditedData] = useState({}); // Data being edited
 
 
-  // this the user detail
-  console.log(userDetail);
-
-  const [userData, setUserData] = useState({}); 
-
-
   useEffect(() => {
-    // for fetching user data from the backend
     const fetchUserData = async () => {
       try {
-        // Replace with actual API
-        const mockData = {
-          username: "WaWa",
-          role: "Admin",
-          fullName: "WaWa",
-          gender: "Male",
-          email: "wawa@jiajia.com",
-          phone: "012-3456789",
-          profileImage: profileImg,
-          backgroundImage: backgroundImg,
-          badges: [badgeImage, badgeImage, badgeImage, badgeImage, badgeImage, badgeImage],
-        };
-
-        setUserData(mockData);
-      } catch (error) {
-        console.error("Error fetching user data:", error);
+        const res = await axios.get("http://127.0.0.1:5000/users");
+        console.log("Fetched users:", res.data);
+        const user = res.data.find((user) => user.id === id);
+        console.log("Matched user:", user);
+        
+        if (user) {
+          setUserData({
+            ...user,
+            profileImage: profileImg,
+            backgroundImage: backgroundImg,
+            badges: [badgeImage, badgeImage, badgeImage, badgeImage, badgeImage, badgeImage],
+            gender: "Male",
+            role: "Student",
+            fullName: user.username,
+            phone: "012-3456789",
+          });
+        }
+      } catch (err) {
+        console.error("Error fetching user details:", err);
       }
     };
 
     fetchUserData();
-  }, []);
+  }, []); // Runs once when the component mounts
 
   const handleEditButtonClick = () => {
     setEditedData(userData);
@@ -105,7 +103,7 @@ function ProfilePage() {
           <div className="UserInfoColumns">
             <div className="InfoBox">
               <p className="InfoBoxTitle">Full Name</p>
-              <div className="InfoBoxContent">{userData.fullName || 'UserName'}</div>
+              <div className="InfoBoxContent">{userData.username || 'UserName'}</div>
             </div>
             <div className="InfoBox">
               <p className="InfoBoxTitle">Gender</p>

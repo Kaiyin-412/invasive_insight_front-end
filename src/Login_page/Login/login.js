@@ -11,7 +11,6 @@ let id=null;
 
 function Login() {
 
-
     let array = [];
     const getUserId =async(e)=>{
         const username = document.getElementById('username').value;
@@ -21,7 +20,7 @@ function Login() {
         array=[...res.data];
         console.log(array);
         // return first match user wth the username
-        const user = array.find(user => user.username=== username );
+        const user = array.find(user => user.username === username );
         id = user.id;
         console.log(id);
         }catch(err){
