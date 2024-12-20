@@ -1,40 +1,58 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import SideBar from '../SideBar/SideBar'
 import './quizresult.css';
 import Badges from '../../image/Badge.png';
 import axios from 'axios';
+import { id } from '../../Login_page/Login/login';
 
+//   // get all user score
+//   const getAllScore = async ()=>{
+//     try{
+//       const res = await axios.get("http://127.0.0.1:5000/users/scores");
+//       return res.data.data;
+//     }catch(err){
+//       console.log(err);
+//     }
+//   }
 
-  // get all user score
-  const getAllScore = async ()=>{
-    try{
-      const res = await axios.get("http://127.0.0.1:5000/users/scores");
-      return res.data.data;
-    }catch(err){
-      console.log(err);
-    }
-  }
-
-// data for all user score and add await to reolve the promise 
-const data =  await getAllScore();
+// // data for all user score and add await to reolve the promise 
+// const data =  await getAllScore();
 
 
 function QuizResultPage(){
 
+  const [rankingData, setRankingData] = useState([]);
+  const [Score, SetScore]=useState(0);
 
-  console.log(data[0].score); // get the first score 
+  useEffect(()=>{
+    const getAllScore = async ()=>{
+      try{
+        const res = await axios.get("http://127.0.0.1:5000/users/scores");
+        // access data from backend 
+        let data = [];
+         data = res.data.data;
+        console.log(data);
+
+        // sort according the score 
+        setRankingData(data.sort((a,b)=>b.score-a.score));
+
+        // get the score of the user 
+        const currentUser = data.find(user => user.user_id === id);
+        console.log("current user : "+currentUser)
+
+        // set the score
+         SetScore(currentUser.score);
+
+      }catch(err){
+        console.log(err);
+      }
+    }; getAllScore();
+  },[]);
 
 
-  const userScore = 18; // Replace with dynamic data if available
-  const totalScore = 20; // Replace with dynamic data if available
-  const rankingData = [
-    { rank: "#1", username: "Name Name Name", score: "19/20" },
-    { rank: "#1", username: "Name Name Name", score: "19/20" },
-    { rank: "#1", username: "Name Name Name", score: "19/20" },
-    { rank: "#1", username: "Name Name Name", score: "19/20" },
-    { rank: "#1", username: "Name Name Name", score: "19/20" },
-    { rank: "#1", username: "Name Name Name", score: "19/20" },
-  ];
+
+  const userScore = Score;
+  const totalScore = 10; 
 
   return (
     <div className="quiz-result-page">
@@ -74,9 +92,9 @@ function QuizResultPage(){
             <tbody>
               {rankingData.map((item, index) => (
                 <tr key={index}>
-                  <td>{item.rank}</td>
+                  <td>{index+1}</td>
                   <td>{item.username}</td>
-                  <td>{item.score}</td>
+                  <td>{item.score}/10</td>
                 </tr>
               ))}
             </tbody>
