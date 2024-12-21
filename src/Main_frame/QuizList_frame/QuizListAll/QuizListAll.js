@@ -1,11 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState,useContext } from 'react'
 import SideBar from '../../SideBar/SideBar';
 import './QuizListAll.css';
 import QuizData from '../QuizListData/QuizListData';
 import Component from '../Component/Component';
 import { useNavigate } from 'react-router-dom';
+import { FontSizeContext } from '../../../FontSize/FontSizeContext';
 
 function QuizListAll() {
+
+  // handle the change in fontsize
+  const {fontSize} = useContext(FontSizeContext);
+
   // use to render the button
   const button = [
     { id: 1, label: "All Quizzes" },
@@ -65,7 +70,7 @@ function QuizListAll() {
  }
 
   return (
-    <div className='QuizList-container'>
+    <div className='QuizList-container' style={{fontSize}}>
       {/* render the sidebar */}
         <div className='QuizList-SideBar'>
             <SideBar/>

@@ -1,25 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState,useContext } from 'react'
 import SideBar from '../SideBar/SideBar'
 import './quizresult.css';
 import Badges from '../../image/Badge.png';
 import axios from 'axios';
 import { id } from '../../Login_page/Login/login';
-
-//   // get all user score
-//   const getAllScore = async ()=>{
-//     try{
-//       const res = await axios.get("http://127.0.0.1:5000/users/scores");
-//       return res.data.data;
-//     }catch(err){
-//       console.log(err);
-//     }
-//   }
-
-// // data for all user score and add await to reolve the promise 
-// const data =  await getAllScore();
-
+import { FontSizeContext } from '../../FontSize/FontSizeContext';
 
 function QuizResultPage(){
+
+  // handle the change in fontsize
+  const {fontSize} = useContext(FontSizeContext);
 
   const [rankingData, setRankingData] = useState([]);
   const [Score, SetScore]=useState(0);
@@ -55,7 +45,7 @@ function QuizResultPage(){
   const totalScore = 10; 
 
   return (
-    <div className="quiz-result-page">
+    <div className="quiz-result-page" style={{fontSize}}>
       <SideBar /> {/* Use your existing Sidebar component */}
       <main className="result-main">
       <div className="score-section">

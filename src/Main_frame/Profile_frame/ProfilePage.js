@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState,useContext } from 'react';
 import SideBar from '../SideBar/SideBar';
 import './ProfilePage.css';
 import backgroundImg from '../../image/Profile_image/profilebg.jpg';
@@ -6,27 +6,13 @@ import profileImg from '../../image/Profile_image/profileimg.jpg';
 import badgeImage from '../../image/Dashboard_image/badge.png';
 import axios from 'axios';
 import { id } from '../../Login_page/Login/login';
-import { useNavigate } from 'react-router-dom';
-// const getUserDetail = async()=>{
-//   let array=[];
-//   try{
-//     const res = await axios.get("http://127.0.0.1:5000/users");
-//     console.log(res.data);
-//     // copy all the data from backend into array
-//     array=[...res.data];
-//     // filter the user detail based on the user id
-//     const user = array.find(user => user.id === id);
-//     // use for debug 
-//     console.log(user)
-//     return  user;
-//   }catch(err){
-//     console.log(err);
-//   }
-// }
-
-// const userDetail =  await getUserDetail(); 
+import { FontSizeContext } from '../../FontSize/FontSizeContext';
 
 function ProfilePage() {
+
+  // handle the change in fontsize
+  const {fontSize} = useContext(FontSizeContext);
+
 
   const [userData, setUserData] = useState({});
   const [isEditing, setIsEditing] = useState(false); // Modal state
@@ -125,7 +111,7 @@ function ProfilePage() {
   };
 
   return (
-    <div className="ProfilePage">
+    <div className="ProfilePage" style={{fontSize}}>
       <SideBar />
       <div className="ProfileFrame">
         <div
