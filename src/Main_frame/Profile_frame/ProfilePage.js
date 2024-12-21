@@ -6,6 +6,7 @@ import profileImg from '../../image/Profile_image/profileimg.jpg';
 import badgeImage from '../../image/Dashboard_image/badge.png';
 import axios from 'axios';
 import { id } from '../../Login_page/Login/login';
+import { useNavigate } from 'react-router-dom';
 // const getUserDetail = async()=>{
 //   let array=[];
 //   try{
@@ -27,11 +28,27 @@ import { id } from '../../Login_page/Login/login';
 
 function ProfilePage() {
 
-
   const [userData, setUserData] = useState({});
   const [isEditing, setIsEditing] = useState(false); // Modal state
   const [editedData, setEditedData] = useState({}); // Data being edited
 
+  // update user profile 
+  const update= async()=>{
+    const Username = document.getElementById("username").value;
+    const Email = document.getElementById("email").value;
+    console.log("username "+Username);
+    console.log("EMial" + Email);
+    const data={
+      "username" : Username,
+      "email" : Email
+    }
+    try{
+      const res = await axios.put(`http://127.0.0.1:5000/user/update_profile/${id}`,data);
+      console.log(res.data);
+    }catch(err){
+      console.log(err);
+    }
+  }
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -71,9 +88,36 @@ function ProfilePage() {
     setEditedData({ ...editedData, [name]: value });
   };
 
-  const handleSaveChanges = () => {
-    setUserData(editedData);
-    setIsEditing(false);
+  const handleSaveChanges = async() => {
+
+    try {
+      // Save the changes to the backend
+      await update();
+  
+      // Fetch the latest user data
+      const res = await axios.get("http://127.0.0.1:5000/users");
+      const updatedUser = res.data.find((user) => user.id === id);
+  
+      if (updatedUser) {
+        // Update the local state with the latest data
+        setUserData({
+          ...updatedUser,
+          profileImage: profileImg,
+          backgroundImage: backgroundImg,
+          badges: [badgeImage, badgeImage, badgeImage, badgeImage, badgeImage, badgeImage],
+          gender: editedData.gender,
+          role: editedData.role,
+          phone: editedData.phone
+        });
+      }
+      console.log("User data updated:", updatedUser);
+  
+      // Close the editing frame
+      setIsEditing(false);
+
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const handleCancelEdit = () => {
@@ -102,7 +146,7 @@ function ProfilePage() {
         <div className="ProfileContent">
           <div className="UserInfoColumns">
             <div className="InfoBox">
-              <p className="InfoBoxTitle">Full Name</p>
+              <p className="InfoBoxTitle">Username</p>
               <div className="InfoBoxContent">{userData.username || 'UserName'}</div>
             </div>
             <div className="InfoBox">
@@ -140,8 +184,9 @@ function ProfilePage() {
             <div className="EditModalContent">
               <h2>Edit Profile</h2>
               <label>
-                Full Name:
+                Username:
                 <input
+                  id="username"
                   type="text"
                   name="fullName"
                   value={editedData.fullName}
@@ -160,6 +205,7 @@ function ProfilePage() {
               <label>
                 Email:
                 <input
+                  id="email"
                   type="email"
                   name="email"
                   value={editedData.email}
@@ -176,7 +222,7 @@ function ProfilePage() {
                 />
               </label>
               <div className="ModalActions">
-                <button onClick={handleSaveChanges}>Save</button>
+                <button onClick={()=>{handleSaveChanges()}}>Save</button>
                 <button onClick={handleCancelEdit}>Cancel</button>
               </div>
             </div>
