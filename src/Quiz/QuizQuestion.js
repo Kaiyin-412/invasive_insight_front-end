@@ -1,7 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect ,useContext} from 'react';
 import './QuizQuestion.css';
+import { FontSizeContext } from '../FontSize/FontSizeContext';
 
 function QuizQuestion({ questionData, onProceed, timeUp }) {
+
+    // handle the change in fontsize
+  const {fontSize} = useContext(FontSizeContext);
+
     const [selectedOption, setSelectedOption] = useState(null);
     const [isChecked, setIsChecked] = useState(false);
     const [showHint, setShowHint] = useState(false);
@@ -51,7 +56,7 @@ function QuizQuestion({ questionData, onProceed, timeUp }) {
     };
 
     return (
-        <div className="quiz-body">
+        <div className="quiz-body" style={{fontSize}}>
             <div className="quiz-container">
                 <div className="marks-container">
                     <span className="star-icon">⭐</span>

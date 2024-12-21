@@ -1,8 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState ,useContext} from 'react'
 import './CreateQuizQuestion.css';
 import { PlusCircle, Save, Trash2 } from 'lucide-react';
+import { FontSizeContext } from '../../../FontSize/FontSizeContext';
 
 function CreateQuizQuestion() {
+
+    // handle the change in fontsize
+  const {fontSize} = useContext(FontSizeContext);
 
     // initialise the question
     let question ={
@@ -70,7 +74,7 @@ function CreateQuizQuestion() {
     }
 
   return (
-    <div className='CreateQuizQuestion-container'>
+    <div className='CreateQuizQuestion-container' style={{fontSize}}>
         <div className='CreateQuizQuestion-component'>
 
             <div className='CreateQuizQuestion-addQuestionPart'>

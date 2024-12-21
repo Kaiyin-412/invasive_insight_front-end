@@ -1,25 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState,useContext } from 'react';
 import SideBar from '../SideBar/SideBar';
 import badgeImage from '../../image/Dashboard_image/badge.png';
 import './DashboardPage.css'; 
 import { id } from '../../Login_page/Login/login';
 import axios from 'axios';
-
-// // get the user score
-// const getUserScore = async ()=>{
-//   try{
-//     const res = await axios.get(`http://127.0.0.1:5000/user/users/${id}/score`);
-//     console.log(res.data.data);
-//     return res.data.data;
-//   }catch(err){
-//     console.log(err);
-//   }
-// }
-
-// // user's score store at here
-// const data = await getUserScore();
+import { FontSizeContext } from '../../FontSize/FontSizeContext';
 
 function DashboardPage() {
+
+  // handle the change in fontsize
+  const {fontSize} = useContext(FontSizeContext);
+
   const [status,setStatus] = useState(false);
   const [data,setData] = useState({});
 
@@ -43,7 +34,7 @@ function DashboardPage() {
   },[]);
 
   return (
-    <div className="dashboard-container">
+    <div className="dashboard-container" style={{fontSize}}>
       <SideBar />
       <div className="dashboard-content">
         <div className="dashboard-sections">

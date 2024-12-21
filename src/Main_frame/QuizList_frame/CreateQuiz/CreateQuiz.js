@@ -1,8 +1,12 @@
-import React from 'react'
+import React ,{useContext} from 'react'
 import './CreateQuiz.css';
 import { useNavigate } from 'react-router-dom';
+import { FontSizeContext } from '../../../FontSize/FontSizeContext';
 
 function CreateQuiz() {
+
+  // handle the change in fontsize
+  const {fontSize} = useContext(FontSizeContext);
 
   const navigate = useNavigate();
 
@@ -12,7 +16,7 @@ function CreateQuiz() {
   }
 
   return (
-    <div className='CreateQuiz-container'>
+    <div className='CreateQuiz-container' style={{fontSize}}>
         <div className='CreateQuiz-component'>
             <h1>Create Your Own Quiz</h1>
             <div className='CreateQuiz-form'>

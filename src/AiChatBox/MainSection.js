@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './MainSection.css'; // Create this CSS file for styling.
 import Chatbot from './Chatbot'; // Import the Chatbot component
 import Image from '../image/AiChatBox_image/Image.png';
-
+import { FontSizeContext } from '../FontSize/FontSizeContext';
 
 const MainSection = () => {
+
+  // handle the change in fontsize
+  const {fontSize} = useContext(FontSizeContext);
+
   return (
-    <div className="main-section">
+    <div className="main-section" style={{fontSize}}>
       <div className="banner">
         <img
           src={Image}
