@@ -20,11 +20,13 @@
 }
 
 .SideBar-MenuBar button{
+    border-radius: 10px;
+    height: 50px;
     display:flex;
     align-items: center;
     background-color: #ACD59F;
     border: none;
-    width: 100%;
+    width: 90%;
     gap: 20px;
 }
 

@@ -3,25 +3,15 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
-// import Quizresult from './Main_frame/QuizResult_frame/QuizResultPage';
-
-// import SuccessPop from './Login_page/Sign_up/SuccessPop';
-
-// import MainlandingPage from './Landing_page/Main_Landing_Page/Main_Landing_Page';
-// import SideBar from './Main_frame/SideBar/SideBar';
-// import Component from './Main_frame/QuizList_frame/Component/Component';
-// import QuizListAll from './Main_frame/QuizList_frame/QuizListAll/QuizListAll';
+// // import CreateQuiz from './Main_frame/QuizList_frame/CreateQuiz/CreateQuiz';
+// import CreateQuizQuestion from './Main_frame/QuizList_frame/CreateQuiz/CreateQuizQuestion';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <App/>
-    {/* <SuccessPop/> */}
-    {/* <Component/> */}
-    {/* <SideBar/> */}
-    {/* <LandingPage/> */}
-    {/* <QuizListAll/> */}
+    {/* <CreateQuiz/>
+    <CreateQuizQuestion/> */}
   </React.StrictMode>
 );
 

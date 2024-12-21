@@ -1,7 +1,6 @@
 .QuizList-container{
     height: 100vh;
     display: flex;
-    
 }
 
 .QuizList-Component{
@@ -28,7 +27,7 @@
 }
 
 .QuizList-button button{
-    font-size: 15px;
+    font-size: 14px;
     height: 40px;
     width: 170px;
     border-radius: 20px;
@@ -37,7 +36,7 @@
     color: black;
     font-weight: 600;
     font-family: 'Inter';
-    
+    cursor: pointer;
 }
 
 .QuizList-button button:hover{
@@ -70,6 +69,24 @@
     cursor: pointer;
     color: black;
     text-decoration: underline;
+}
+
+.QuizList-levelCreate{
+    display: flex;
+}
+
+.QuizList-Create{
+    margin-left: auto;
+}
+
+.QuizList-Create button{
+    text-align: end;
+    height: 15px;
+    background-color: white;
+    border: none;
+    font-size: 13px;
+    color:  rgba(126, 126, 133, 0.636);
+    cursor: pointer;
 }
 
 .QuizList-quiz{

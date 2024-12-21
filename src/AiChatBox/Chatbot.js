@@ -33,7 +33,7 @@ const Chatbot = () => {
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          placeholder="Message AI Chatbox"
+          placeholder="Message AI Chatbox ( Ex . Hello }"
         />
         <button onClick={handleSend}>↑</button>
       </div>
