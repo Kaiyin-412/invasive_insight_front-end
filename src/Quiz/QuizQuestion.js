@@ -1,8 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect ,useContext} from 'react';
 import './QuizQuestion.css';
 import Confetti from 'react-confetti';
+import { FontSizeContext } from '../FontSize/FontSizeContext';
 
 function QuizQuestion({ questionData, onProceed, timeUp }) {
+
+    // handle the change in fontsize
+  const {fontSize} = useContext(FontSizeContext);
+
     const [selectedOption, setSelectedOption] = useState(null);
     const [isChecked, setIsChecked] = useState(false);
     const [showHint, setShowHint] = useState(false);
@@ -57,6 +62,7 @@ function QuizQuestion({ questionData, onProceed, timeUp }) {
     return (
         <div className="quiz-body">
             {showConfetti && <Confetti />}
+        <div className="quiz-body" style={{fontSize}}>
             <div className="quiz-container">
                 <div className="marks-container">
                     <span className="star-icon">⭐</span>
@@ -68,7 +74,7 @@ function QuizQuestion({ questionData, onProceed, timeUp }) {
 
                 {questionData.image && (
                     <div className="question-image">
-                        <img src={questionData.image} alt="Question Image" />
+                        <img src={questionData.image} alt="Question" />
                     </div>
                 )}
 
@@ -115,6 +121,7 @@ function QuizQuestion({ questionData, onProceed, timeUp }) {
                 </div>
             </div>
             )}
+        </div>
         </div>
     );
 }

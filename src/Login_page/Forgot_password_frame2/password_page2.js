@@ -1,20 +1,65 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './password_page2.css';
 import { useNavigate } from 'react-router-dom';
+import SuccessPop from '../Sign_up/SuccessPop';
 
 function Password_page2 () {
-
+  // use for navigation
   const navigate = useNavigate();
 
+  // naviagte back to password page to resend email
   const NavigateBack = (e) =>{
       e.preventDefault();
       navigate('/PasswordPage');
   }
 
-  const NavigateNext = (e) =>{
-    e.preventDefault();
-    navigate('/PasswordPage2/PasswordReset');
-}
+  // neviagte to the password reset page if successfult verify email
+//   const NavigateNext = (e) =>{
+//     e.preventDefault();
+//     navigate('/PasswordPage2/PasswordReset');
+// }
+
+  const [otp,setOtp] = useState(Array(5).fill(''));
+
+  const [success , setSuccess] = useState(false);
+
+  const handleChange =(e, index) => {
+    const value = e.target.value;
+    if(/^\d$/.test(value) || value ===''){  // allow only numeric input 
+      const newOtp = [...otp];
+      newOtp[index]=value;
+      setOtp(newOtp);
+
+      // Auto focus
+      if(value && index < 4){
+        const nextInput = document.querySelector(`input[name=digit-${index + 1}]`);
+        if(nextInput) {
+          nextInput.focus();
+        } 
+      }
+    }
+  }
+
+  // checking for the otp 
+  const handleSubmit = async (e)=>{
+    e.preventDefault(); // prevent from refresh  
+    const otpString = otp.join(''); // joint the otp in the array
+    try{
+      // send a get request to backend 
+      const response = await fetch(`http://127.0.0.1:5000/forgetPassword/verify_user?otp=${otpString}`);
+      const responseJSON = await response.json();
+
+      if(responseJSON.Verified){
+        // to call out success pop out frame 
+        setSuccess(true);
+        console.log("Success");
+      }else{
+        console.log("incorrect otp");
+      }
+    }catch(error){
+      console.error('Error verifying OTP:', error);
+    }
+  }
 
   return (
     <div>
@@ -29,19 +74,29 @@ function Password_page2 () {
                 <p>We sent reset link to the above email</p>
                 <p>enter 5 digit code that mentioned in the email</p>
                 <div class="input_digit">
-                  <input class="num" type="text" inputMode="numeric" maxLength="1" required name="first-digit"></input>
-                  <input class="num" type="text" inputMode="numeric" maxLength="1" required name="second-digit"></input>
-                  <input class="num" type="text" inputMode="numeric" maxLength="1" required name="third-digit"></input>
-                  <input class="num" type="text" inputMode="numeric" maxLength="1" required name="fourth-digit"></input>
-                  <input class="num" type="text" inputMode="numeric" maxLength="1" required name="fifth-digit"></input>
+                  {otp.map((digit, index)=> (
+                    <input
+                      key={index}
+                      type='text'
+                      inputMode='numeric'
+                      name={`digit-${index}`}
+                      maxLength="1"
+                      value={digit}
+                      onChange={(e)=> handleChange(e,index)}
+                      required
+                      />
+                  ))}
                 </div>
-                <button type="submit" onClick={NavigateNext}>Verify code</button>
+                <button type="submit" onClick={(e)=> handleSubmit(e)}>Verify code</button>
               </form>
           </div>
           <div class="resend-email">
             <p>Haven't got the email yet? <a href="/PasswordPage" onClick={NavigateBack}>Resend email</a></p>
           </div>
         </div>
+        {success && (
+          <SuccessPop Title=" Verify Success" path='./PasswordReset'/>
+        )}
       </div>
     </div>
   )

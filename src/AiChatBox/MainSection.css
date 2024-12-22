@@ -1,0 +1,49 @@
+.main-section {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .banner {
+    position: relative;
+  }
+  
+  .banner-image {
+    width: 100%; /* Resize image to 90% of its container width */
+    height: auto; /* Maintain aspect ratio */
+    border: 80px solid #cff7d3; /* Thick border with the color #cff7d3 */
+    padding: 0px; /* Optional: Padding inside the border */
+    box-sizing: border-box; /* Ensure padding is included in width/height */
+  }
+  
+  .banner h2 {
+    position: absolute;
+    bottom: 100px; /* Aligns the <h2> 10px from the bottom of the image */
+    left: 100px; /* Aligns the <h2> 10px from the left edge of the image */
+    margin: 0; /* Remove default margin for <h2> */
+    color: white; /* Set text color (change as needed) */
+    font-size: 2rem; /* Adjust font size as needed */
+    font-weight: bold; /* Make the text bold */
+  }
+  
+  .description {
+    margin-top: 20px; /* Add margin above the description */
+    width: 100%; /* Make description width the same as the image */
+    padding: 15px; /* Padding inside the description */
+    border: 1px solid #000000; /* Frame with the same border color */
+    border-radius: 10px; /* Optional: rounded corners */
+    box-sizing: border-box; /* Ensure padding is included in the width/height */
+    font-size: 0.9rem;
+    text-align: left; /* Ensure the text aligns to the left */
+  }
+  
+  .description p:first-child {
+    font-size: 1.2rem;
+    font-weight: bold; /* Make the first row bold */
+    margin: 0; /* Remove any default margin */
+  }
+  
+  .description p {
+    margin: 0; /* Remove default margin for all paragraphs */
+  }
+  
+  

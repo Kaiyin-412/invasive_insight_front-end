@@ -17,6 +17,7 @@ function Component({quiz,toggleBookmarked}) {
     e.preventDefault();
     navigate('./Quiz');
   }
+
   
   return (
     <div className='Component-container'>

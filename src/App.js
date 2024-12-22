@@ -8,14 +8,15 @@ import LandingPage from './Landing_page/Main_Landing_Page';
 import Quiz from './Quiz/QuizApp';
 import ForumPage from './Main_frame/Forum_frame/Forum_page';
 import QuizList from './Main_frame/QuizList_frame/QuizListAll/QuizListAll';
+import QuizResultPage from './Main_frame/QuizResult_frame/QuizResultPage';
 import ProfilePage from './Main_frame/Profile_frame/ProfilePage';
 import { BrowserRouter as Router,Route,Routes } from 'react-router-dom';
 import { FontSizeProvider } from './FontSize/FontSizeContext';
 import DashboardPage from './Main_frame/Dashboard_frame/DashboardPage';
+import Chatbot from './AiChatBox/MainSection'; 
+import CreateQuiz from './Main_frame/QuizList_frame/CreateQuiz/CreateQuiz';
+import CreateQuizQuestion from './Main_frame/QuizList_frame/CreateQuiz/CreateQuizQuestion';
 
-// for debug
-// import SideBar from './Main_frame/SideBar/SideBar';
-// import Settings from './Main_frame/SideBar/Settings';
 
 function App() {
   return (
@@ -33,6 +34,10 @@ function App() {
         <Route path="/LandingPage/QuizList" element={<QuizList/>}/>
         <Route path="LandingPage/Dashboard" element={<DashboardPage />} />
         <Route path="/LandingPage/Profile" element={<ProfilePage/>}/>
+        <Route path="/LandingPage/QuizList/Quiz/QuizResult" element={<QuizResultPage/>} />
+        <Route path="/LandingPage/Chatbot" element={<Chatbot/>} />
+        <Route path="/LandingPage/QuizList/CreateQuizQuestion" element={<CreateQuiz/>}/>
+        <Route path="/LandingPage/QuizList/CreateQuizQuestion/CreateQuiz" element={<CreateQuizQuestion/>}/>
       </Routes>
     </Router>
   </FontSizeProvider>

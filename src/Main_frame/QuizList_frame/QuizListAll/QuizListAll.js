@@ -1,10 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState,useContext } from 'react'
 import SideBar from '../../SideBar/SideBar';
 import './QuizListAll.css';
 import QuizData from '../QuizListData/QuizListData';
 import Component from '../Component/Component';
+import { useNavigate } from 'react-router-dom';
+import { FontSizeContext } from '../../../FontSize/FontSizeContext';
 
 function QuizListAll() {
+
+  // handle the change in fontsize
+  const {fontSize} = useContext(FontSizeContext);
+
   // use to render the button
   const button = [
     { id: 1, label: "All Quizzes" },
@@ -56,8 +62,15 @@ function QuizListAll() {
   return difficulty === level ? {color : "black" , textDecoration : "underline" }:{color : "rgba(126, 126, 133, 0.636)" , textDecoration:"none"}
  };
 
+ const naviagte = useNavigate();
+
+ const navigateToCreateQuiz =(e)=>{
+  e.preventDefault();
+  naviagte("./CreateQuizQuestion");
+ }
+
   return (
-    <div className='QuizList-container'>
+    <div className='QuizList-container' style={{fontSize}}>
       {/* render the sidebar */}
         <div className='QuizList-SideBar'>
             <SideBar/>
@@ -69,12 +82,19 @@ function QuizListAll() {
                   <button key={button.id} onClick={()=>ClickedButton(button.id)} style={UpdateColor(button.id)}>{button.label}</button>
                 ))}
             </div>
-            <div className='QuizList-level'>
-              <p >Difficulty Level: </p>
-              <button onClick={()=>ToggleDifficulty("Easy")} style={StyleButtonText("Easy")}>Easy</button>
-              <button onClick={()=>ToggleDifficulty("Medium")} style={StyleButtonText("Medium")}>Medium</button>
-              <button onClick={()=>ToggleDifficulty("Hard")} style={StyleButtonText("Hard")}>Hard</button>
+            <div className='QuizList-levelCreate'>
+              <div className='QuizList-level'>
+                <p >Difficulty Level: </p>
+                <button onClick={()=>ToggleDifficulty("Easy")} style={StyleButtonText("Easy")}>Easy</button>
+                <button onClick={()=>ToggleDifficulty("Medium")} style={StyleButtonText("Medium")}>Medium</button>
+                <button onClick={()=>ToggleDifficulty("Hard")} style={StyleButtonText("Hard")}>Hard</button>
+              </div>
+              <div className='QuizList-Create'>
+                <button onClick={(e)=>{navigateToCreateQuiz(e)}}>+ Create Your Own Quiz</button>
+              </div>
             </div>
+            
+            
             {/* render the component using the quizdata */}
             <div className='QuizList-quiz'>
                 {quizzes.filter((quiz)=>{

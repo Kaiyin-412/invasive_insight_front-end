@@ -1,11 +1,16 @@
 // import './QuizApp.css';
 import React, { useEffect, useState } from 'react';
 import QuizQuestion from './QuizQuestion.js';
-import Confetti from 'react-confetti';
+// import Confetti from 'react-confetti';
+import { useNavigate } from 'react-router-dom';
 
+// get user id to send get request
+import {id} from '../Login_page/Login/login.js';
+import axios from 'axios';
+import dayjs from 'dayjs';
 // import './styles.css';
 
-  const fetchQuizData = (input) => { // this function will query an API and parse the response as JSON
+  const fetchQuizData = async (input) => { // this function will query an API and parse the response as JSON
     return fetch(input)
     .then((response) => response.json()) // parse the response as JSON
     .then((responseJson) => {
@@ -16,14 +21,34 @@ import Confetti from 'react-confetti';
     });
  }
  const quizData = await fetchQuizData('http://localhost:5000/quiz_all'); // fetch all the questions from the URL
-  
+
+
  function QuizApp() {
+
+    // store user score and quiz time to backend 
+    const handleUserScore = async(e)=>{
+      e.preventDefault();
+      // get finish time 
+      const currdatetime =dayjs().format("YYYY-MM-DD[T]HH:MM:ss");
+      // get user score
+      const userData ={
+        "score" : score,
+        "completed_at" : currdatetime
+      }
+      try{
+        const res = await axios.post(`http://127.0.0.1:5000/user/users/${id}/score_time`,userData);
+        console.log(res.data);
+      }catch(err){
+        console.log(err);
+      }
+    }
+
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [score, setScore] = useState(0);
     const [isQuizCompleted, setIsQuizCompleted] = useState(false);
     const [timer, setTimer] = useState(60);
     const [timeUp, setTimeUp] = useState(false);
-    const [showConfetti, setShowConfetti] = useState(false);
+    // const [showConfetti, setShowConfetti] = useState(false);
   
     useEffect(() => {
         if (timer === 0 && !isQuizCompleted) {
@@ -48,12 +73,12 @@ import Confetti from 'react-confetti';
     const handleProceed = (isCorrect) => {
       if (isCorrect) {
         setScore(score + 1);
-        setShowConfetti(true); // Trigger confetti effect
+        // setShowConfetti(true); // Trigger confetti effect
   
         // Hide confetti after a short duration
-        setTimeout(() => {
-          setShowConfetti(false);
-        }, 3000); // 3 seconds
+        // setTimeout(() => {
+        //   setShowConfetti(false);
+        // }, 3000); // 3 seconds
       }
   
         if (currentQuestionIndex < quizData.length - 1) {
@@ -64,10 +89,18 @@ import Confetti from 'react-confetti';
     };
   
     const progressWidth = ((currentQuestionIndex + 1) / quizData.length) * 100;
-  
+    
+    const navigate = useNavigate();
+
+    const NavigateToResult =(e)=>{
+      e.preventDefault();
+      handleUserScore(e);
+      navigate('./QuizResult');
+    }
+
     return (
       <div className="quiz-body">
-        {showConfetti && <Confetti />} {/* Render confetti when showConfetti is true */}
+        {/* {showConfetti && <Confetti />} Render confetti when showConfetti is true */}
         {!isQuizCompleted && (
           <div className="progress-timer-wrapper">
             <div className="progress-container">
@@ -86,7 +119,7 @@ import Confetti from 'react-confetti';
             <div className="feedback-box correct-feedback">
               <p>Quiz Completed! 🎉</p>
               <p>You scored {score} out of {quizData.length}.</p>
-              <button className="navigation-button" onClick={() => {/* extra navigatebutton*/}}>
+              <button className="navigation-button" onClick={(e) => {NavigateToResult(e)}}>
               Go to Result Page
             </button>
             </div>

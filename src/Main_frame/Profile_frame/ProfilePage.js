@@ -1,40 +1,68 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState,useContext } from 'react';
 import SideBar from '../SideBar/SideBar';
 import './ProfilePage.css';
 import backgroundImg from '../../image/Profile_image/profilebg.jpg';
 import profileImg from '../../image/Profile_image/profileimg.jpg';
 import badgeImage from '../../image/Dashboard_image/badge.png';
+import axios from 'axios';
+import { id } from '../../Login_page/Login/login';
+import { FontSizeContext } from '../../FontSize/FontSizeContext';
 
 function ProfilePage() {
+
+  // handle the change in fontsize
+  const {fontSize} = useContext(FontSizeContext);
+
+
   const [userData, setUserData] = useState({});
   const [isEditing, setIsEditing] = useState(false); // Modal state
   const [editedData, setEditedData] = useState({}); // Data being edited
 
+  // update user profile 
+  const update= async()=>{
+    const Username = document.getElementById("username").value;
+    const Email = document.getElementById("email").value;
+    console.log("username "+Username);
+    console.log("EMial" + Email);
+    const data={
+      "username" : Username,
+      "email" : Email
+    }
+    try{
+      const res = await axios.put(`http://127.0.0.1:5000/user/update_profile/${id}`,data);
+      console.log(res.data);
+    }catch(err){
+      console.log(err);
+    }
+  }
+
   useEffect(() => {
-    // for fetching user data from the backend
     const fetchUserData = async () => {
       try {
-        // Replace with actual API
-        const mockData = {
-          username: "WaWa",
-          role: "Admin",
-          fullName: "WaWa",
-          gender: "Male",
-          email: "wawa@jiajia.com",
-          phone: "012-3456789",
-          profileImage: profileImg,
-          backgroundImage: backgroundImg,
-          badges: [badgeImage, badgeImage, badgeImage, badgeImage, badgeImage, badgeImage],
-        };
-
-        setUserData(mockData);
-      } catch (error) {
-        console.error("Error fetching user data:", error);
+        const res = await axios.get("http://127.0.0.1:5000/users");
+        console.log("Fetched users:", res.data);
+        const user = res.data.find((user) => user.id === id);
+        console.log("Matched user:", user);
+        
+        if (user) {
+          setUserData({
+            ...user,
+            profileImage: profileImg,
+            backgroundImage: backgroundImg,
+            badges: [badgeImage, badgeImage, badgeImage, badgeImage, badgeImage, badgeImage],
+            gender: "Male",
+            role: "Student",
+            fullName: user.username,
+            phone: "012-3456789",
+          });
+        }
+      } catch (err) {
+        console.error("Error fetching user details:", err);
       }
     };
 
     fetchUserData();
-  }, []);
+  }, []); // Runs once when the component mounts
 
   const handleEditButtonClick = () => {
     setEditedData(userData);
@@ -46,9 +74,36 @@ function ProfilePage() {
     setEditedData({ ...editedData, [name]: value });
   };
 
-  const handleSaveChanges = () => {
-    setUserData(editedData);
-    setIsEditing(false);
+  const handleSaveChanges = async() => {
+
+    try {
+      // Save the changes to the backend
+      await update();
+  
+      // Fetch the latest user data
+      const res = await axios.get("http://127.0.0.1:5000/users");
+      const updatedUser = res.data.find((user) => user.id === id);
+  
+      if (updatedUser) {
+        // Update the local state with the latest data
+        setUserData({
+          ...updatedUser,
+          profileImage: profileImg,
+          backgroundImage: backgroundImg,
+          badges: [badgeImage, badgeImage, badgeImage, badgeImage, badgeImage, badgeImage],
+          gender: editedData.gender,
+          role: editedData.role,
+          phone: editedData.phone
+        });
+      }
+      console.log("User data updated:", updatedUser);
+  
+      // Close the editing frame
+      setIsEditing(false);
+
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const handleCancelEdit = () => {
@@ -56,7 +111,7 @@ function ProfilePage() {
   };
 
   return (
-    <div className="ProfilePage">
+    <div className="ProfilePage" style={{fontSize}}>
       <SideBar />
       <div className="ProfileFrame">
         <div
@@ -77,8 +132,8 @@ function ProfilePage() {
         <div className="ProfileContent">
           <div className="UserInfoColumns">
             <div className="InfoBox">
-              <p className="InfoBoxTitle">Full Name</p>
-              <div className="InfoBoxContent">{userData.fullName || 'UserName'}</div>
+              <p className="InfoBoxTitle">Username</p>
+              <div className="InfoBoxContent">{userData.username || 'UserName'}</div>
             </div>
             <div className="InfoBox">
               <p className="InfoBoxTitle">Gender</p>
@@ -115,8 +170,9 @@ function ProfilePage() {
             <div className="EditModalContent">
               <h2>Edit Profile</h2>
               <label>
-                Full Name:
+                Username:
                 <input
+                  id="username"
                   type="text"
                   name="fullName"
                   value={editedData.fullName}
@@ -135,6 +191,7 @@ function ProfilePage() {
               <label>
                 Email:
                 <input
+                  id="email"
                   type="email"
                   name="email"
                   value={editedData.email}
@@ -151,7 +208,7 @@ function ProfilePage() {
                 />
               </label>
               <div className="ModalActions">
-                <button onClick={handleSaveChanges}>Save</button>
+                <button onClick={()=>{handleSaveChanges()}}>Save</button>
                 <button onClick={handleCancelEdit}>Cancel</button>
               </div>
             </div>

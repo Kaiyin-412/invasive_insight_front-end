@@ -1,0 +1,156 @@
+
+.CreateQuizQuestion-container{
+    background-color: #E6F7E6;
+    height: 100vh;
+    width: 100vw;
+    overflow-y: hidden;
+}
+.CreateQuizQuestion-component{
+    display: flex;
+}
+
+.CreateQuizQuestion-addQuestion{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.CreateQuizQuestion-addQuestion h1{
+    font-weight: bold;
+    font-family: 'Poppins';
+
+}
+
+.CreateQuizQuestion-addQuestion-form-option-input{
+    display: flex;
+}
+
+.CreateQuizQuestion-addQuestion-form p{
+    margin-top: 15px;
+    text-align: left;
+    margin-bottom: 3px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.CreateQuizQuestion-addQuestion-form-option-input-align{
+    width: 350px;
+}
+
+.CreateQuizQuestion-addQuestion-form input[type='text']{
+    height: 30px;
+    font-size: 15px;
+    border-radius: 3px;
+}
+
+.CreateQuizQuestion-addQuestionPart{
+    height: 100vh;
+    border: solid black;
+    width: 30%;
+    display: flex;
+}
+
+.CreateQuizQuestion-addQuestion-form-option-input{
+    padding: 10px;
+}
+
+
+.CreateQuizQuestion-addQuestion-form p , input , h1 , button{
+    margin-left: 15px;
+}
+
+.CreateQuizQuestion-addQuestion-form-inputbutton , .CreateQuizQuestion-addQuestion-form button{
+    height: 30px;
+    width: 400px;
+    box-sizing: border-box;
+}
+
+
+.CreateQuizQuestion-showQuestionPart{
+    width: 70%;
+    border: solid black;
+}
+
+.CreateQuizQuestion-addQuestion-form button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 400px;
+    border-radius: 3px;
+    margin-top: 30px;
+    background-color: #3A5B22;
+    border :  #3A5B22;
+    font-weight: bold;
+    font-family: 'Poppins';
+    color: white;
+    cursor: pointer;
+}
+
+.CreateQuizQuestion-addQuestion-form button:hover{
+    background: #3E8E41;
+}
+
+.CreateQuizQuestion-showQuestionPart{
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.CreateQuizQuestion-showQuestionPart-component{
+    margin-left: 10px;
+    width: 1010px;
+    padding: 15px;
+}
+
+.CreateQuizQuestion-showQuestionPart-innercomponent{
+    border: 1px solid #ddd;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 15px;
+    border-radius: 10px;
+    background-color: white;
+    display: flex;
+}
+
+.CreateQuizQuestion-showQuestionPart-innercomponent p , li{
+    margin-top: 7px;
+    text-align: left;
+    margin-left: 10px;
+    font-family: 'Poppins';
+    font-size: 15px;
+}
+
+.CreateQuizQuestion-showQuestionPart-button button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #3A5B22;
+    border :  #3A5B22;
+    font-weight: bold;
+    font-family: 'Poppins';
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 8px;
+    width: 150px;
+    margin-left: 28px;
+}
+
+.CreateQuizQuestion-showQuestionPart-button button:hover{
+    background: #3E8E41;
+}
+
+.CreateQuizQuestion-showQuestionPart-innercomponent button{
+    margin-left: auto;
+    height: 30px;
+    width: 30px;
+    margin-top: 10px;
+    margin-right: 10px;
+    color: red;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.CreateQuizQuestion-showQuestionPart-innercomponent button:hover{
+    color: darkred;
+}

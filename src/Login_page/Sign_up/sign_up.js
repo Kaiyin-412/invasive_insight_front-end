@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './sign_up.css';
 import { useNavigate } from 'react-router-dom';
 import Sign_up_img from '../../image/Signup_page_image/signup image.png' /*Image of sign up page */
 import { useState } from 'react';
 import Verify from './verify_email';
-
+import MismatchPop from '../Password_reset/MismatchPop';
 
 
 function Sign_up () {
@@ -17,7 +17,8 @@ function Sign_up () {
     const username = document.getElementById('username').value;
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
-    if (username && email && password){
+    const confirm_password = document.getElementById('confirm_password').value
+    if (username && email && password && confirm_password){
       setVerify(true); 
     e.preventDefault();
     }
@@ -47,12 +48,6 @@ function Sign_up () {
         }
       })
       .catch((err) => console.log(err));
-
-      // verify email
-      // kai yin, please help me to create the pop up. I dunno how to do it
-
-      // add new user
-      // if(verify){
       const res = await fetch("http://127.0.0.1:5000/add_user",{
           method: 'POST',
           headers: {
@@ -70,6 +65,36 @@ function Sign_up () {
       console.log(err);
     }
     //}
+  }
+
+    // use to tracj the status of the passsword and confirm password 
+  const [check, setChecking] = useState(false);
+
+  // check whether passsword and confirm password match
+  const CheckPassowrd =(e)=>{
+    e.preventDefault();
+      const new_password = document.getElementById("password").value;
+      const confirm_password = document.getElementById("confirm_password").value;
+      if (new_password !== confirm_password){
+          setChecking(true); // this to display the pop out message 
+      }else{
+          setChecking(false);
+          handleBackend(e); // the password can continue to the send the get request to backend 
+      }
+  }
+
+
+  useEffect(()=>{
+    // start when the check state change
+    const timer = setTimeout(()=>{
+      setChecking(false);},5000) // let the pop out frame exist 5 seconds
+      return () => clearTimeout(timer); // after clear the timer
+  },[check]);
+
+  // will be call when the password match the confirm password 
+  const handleBackend =(e)=>{
+    handleSignUpAttempt(e);
+    handleVerify(e);
   }
 
   return (
@@ -90,25 +115,26 @@ function Sign_up () {
               <label for="confirm_password">Confirm your Password<input name="confirm_password" id="confirm_password" type="password" required placeholder="Enter your password"/>
               </label>
 
-              <button type="submit" onClick={(e)=>{handleSignUpAttempt(e);handleVerify(e);}}>Signup</button>
-
-          </form>
-         
+              <button type="submit" onClick={(e)=>CheckPassowrd(e)}>Signup</button>
+          </form>         
         {/* navigate back to login page */}
         <div>
           <p>Have an account? <a href="/" onClick={BackToPrevious}>Login</a></p>  
         </div>
       </div>
-
       {/* check whether the use sign up and pop up verification */}
       {verify && (
           <Verify/>
           )}
-
+      {
+        check && (
+          <MismatchPop Tittle="Password Mismatch"/>
+        )
+      }
       <div>
         <img src={Sign_up_img} alt="Signup"/> 
       </div>
-      
+
     </div>
 
     
