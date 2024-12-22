@@ -23,11 +23,13 @@ function QuizResultPage(){
          data = res.data.data;
         console.log(data);
 
+        const filterData = data.filter(user => user.score !== null);
+
         // sort according the score 
-        setRankingData(data.sort((a,b)=>b.score-a.score));
+        setRankingData(filterData.sort((a,b)=>b.score-a.score));
 
         // get the score of the user 
-        const currentUser = data.find(user => user.user_id === id);
+        const currentUser = filterData.find(user => user.user_id === id);
         console.log("current user : "+currentUser)
 
         // set the score

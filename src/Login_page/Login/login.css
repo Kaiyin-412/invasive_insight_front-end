@@ -56,6 +56,7 @@
 }
 
 .login-container button{
+    border-radius: 10px;
     background-color: #3A5B22;
     border :  #3A5B22;
     font-weight: bold;
