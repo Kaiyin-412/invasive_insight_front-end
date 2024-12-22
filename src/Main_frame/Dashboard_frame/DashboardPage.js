@@ -20,7 +20,7 @@ function DashboardPage() {
         const res = await axios.get(`http://127.0.0.1:5000/user/users/${id}/score`);
         // access the data from backend 
         const data = res.data.data;
-        if(data){
+        if(data.score !== null){
           console.log(data);
           console.log("success");
           setStatus(true);
