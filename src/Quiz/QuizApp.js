@@ -1,6 +1,7 @@
 // import './QuizApp.css';
 import React, { useEffect, useState } from 'react';
 import QuizQuestion from './QuizQuestion.js';
+import Confetti from 'react-confetti';
 
 // import './styles.css';
 
@@ -22,6 +23,7 @@ import QuizQuestion from './QuizQuestion.js';
     const [isQuizCompleted, setIsQuizCompleted] = useState(false);
     const [timer, setTimer] = useState(60);
     const [timeUp, setTimeUp] = useState(false);
+    const [showConfetti, setShowConfetti] = useState(false);
   
     useEffect(() => {
         if (timer === 0 && !isQuizCompleted) {
@@ -44,7 +46,15 @@ import QuizQuestion from './QuizQuestion.js';
     }, [currentQuestionIndex]);
   
     const handleProceed = (isCorrect) => {
-        if (isCorrect) setScore(score + 1);
+      if (isCorrect) {
+        setScore(score + 1);
+        setShowConfetti(true); // Trigger confetti effect
+  
+        // Hide confetti after a short duration
+        setTimeout(() => {
+          setShowConfetti(false);
+        }, 3000); // 3 seconds
+      }
   
         if (currentQuestionIndex < quizData.length - 1) {
             setCurrentQuestionIndex(currentQuestionIndex + 1);
@@ -57,6 +67,7 @@ import QuizQuestion from './QuizQuestion.js';
   
     return (
       <div className="quiz-body">
+        {showConfetti && <Confetti />} {/* Render confetti when showConfetti is true */}
         {!isQuizCompleted && (
           <div className="progress-timer-wrapper">
             <div className="progress-container">

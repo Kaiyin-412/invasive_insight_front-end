@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './QuizQuestion.css';
+import Confetti from 'react-confetti';
 
 function QuizQuestion({ questionData, onProceed, timeUp }) {
     const [selectedOption, setSelectedOption] = useState(null);
@@ -8,6 +9,7 @@ function QuizQuestion({ questionData, onProceed, timeUp }) {
     const [isCorrect, setIsCorrect] = useState(false);
     const [showFeedback, setShowFeedback] = useState(false);
     const [marks, setMarks] = useState(0);
+    const [showConfetti, setShowConfetti] = useState(false);
 
     const handleOptionChange = (option) => {
         setSelectedOption(option);
@@ -18,7 +20,8 @@ function QuizQuestion({ questionData, onProceed, timeUp }) {
         const isAnswerCorrect = selectedOption === questionData.answer;
         setIsCorrect(isAnswerCorrect);
         if (isAnswerCorrect) {
-            setMarks((prevMarks) => prevMarks + 5); 
+            setMarks((prevMarks) => prevMarks + 5);
+            setShowConfetti(true);
         }
         setShowFeedback(true);
         setTimeout(() => {
@@ -36,6 +39,7 @@ function QuizQuestion({ questionData, onProceed, timeUp }) {
         setIsChecked(false);
         setShowHint(false);
         setShowFeedback(false);
+        setShowConfetti(false);
     };
 
     useEffect(() => {
@@ -52,6 +56,7 @@ function QuizQuestion({ questionData, onProceed, timeUp }) {
 
     return (
         <div className="quiz-body">
+            {showConfetti && <Confetti />}
             <div className="quiz-container">
                 <div className="marks-container">
                     <span className="star-icon">⭐</span>
