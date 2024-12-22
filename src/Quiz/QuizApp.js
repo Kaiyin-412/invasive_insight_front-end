@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import QuizQuestion from './QuizQuestion.js';
 // import Confetti from 'react-confetti';
+
 import { useNavigate } from 'react-router-dom';
 
 // get user id to send get request

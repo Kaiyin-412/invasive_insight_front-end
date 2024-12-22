@@ -1,6 +1,7 @@
 import React, { useState, useEffect ,useContext} from 'react';
 import './QuizQuestion.css';
 import Confetti from 'react-confetti';
+
 import { FontSizeContext } from '../FontSize/FontSizeContext';
 
 function QuizQuestion({ questionData, onProceed, timeUp }) {
@@ -62,6 +63,7 @@ function QuizQuestion({ questionData, onProceed, timeUp }) {
     return (
         <div className="quiz-body">
             {showConfetti && <Confetti />}
+
         <div className="quiz-body" style={{fontSize}}>
             <div className="quiz-container">
                 <div className="marks-container">
